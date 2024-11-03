@@ -11,6 +11,8 @@ class NOODLENOTES_UL_NodeTrees(UIList):
         n_items = len(items_to_doc)
         n_docced = 0
         for doc in items_to_doc:
+            if doc.item_type == "PANEL":
+                n_items -= 1
             if doc.description != "":
                 n_docced += 1
         layout.label(text=f"{n_docced} / {n_items} ({(n_docced/n_items):.0%})")
@@ -28,6 +30,9 @@ class NOODLENOTES_UL_NodeTrees(UIList):
 
 def draw_node_panel(tree: GeometryNodeTree, layout: UILayout, context: Context):
     layout.label(text=tree.name)
+    layout.prop(tree, "name")
+    layout.prop(tree, "description")
+    layout.prop_menu_enum(tree, "color_tag")
     for item in tree.interface.items_tree:
         if item.item_type == "PANEL":
             continue
@@ -35,18 +40,17 @@ def draw_node_panel(tree: GeometryNodeTree, layout: UILayout, context: Context):
         if item.item_type != "SOCKET":
             continue
 
-        if not hasattr(item, "default_value"):
-            continue
-
         header, panel = layout.panel(item.name, default_closed=False)
         header.label(text=item.name)
         if panel is None:
             continue
-
+        panel.prop(item, "name")
+        row = panel.row()
+        panel.prop(item, "description", text="", text_ctxt=item.name)
+        if not hasattr(item, "default_value"):
+            continue
         row = panel.row()
         row.prop_menu_enum(item, "socket_type", text=item.socket_type)
-        panel.prop(item, "description", text="", text_ctxt=item.name)
-        row = panel.row()
         if hasattr(item, "subtype"):
             row.prop_menu_enum(item, "subtype")
         # row.split(factor=0.1)
