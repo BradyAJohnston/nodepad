@@ -1,5 +1,5 @@
 import bpy
-from bpy.types import Panel, Context, UILayout, GeometryNodeTree, UIList, PropertyGroup
+from bpy.types import Panel, Context, UILayout, GeometryNodeTree, UIList
 
 
 class NOODLENOTES_UL_NodeTrees(UIList):

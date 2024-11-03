@@ -1,9 +1,10 @@
 import bpy
 
 from . import panel
-from bpy.props import CollectionProperty, IntProperty
+from . import pref
+from bpy.props import IntProperty
 
-CLASSES = panel.CLASSES
+CLASSES = panel.CLASSES + pref.CLASSES
 
 
 def register():
