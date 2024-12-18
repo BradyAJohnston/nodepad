@@ -31,7 +31,7 @@ class Documenter:
     def description(self) -> str:
         return self.tree.description
 
-    def videos(self) -> List[str]:
+    def videos(self) -> str | None:
         links = self._links
 
         if links is None:
