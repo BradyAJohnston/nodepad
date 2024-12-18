@@ -1,6 +1,6 @@
 schema_version = "1.0.0"
 
-id = "molecularnodes"
+id = "nodepad"
 version = "0.1.1"
 name = "NodePad"
 tagline = "Create beautiful documentation for your node groups"

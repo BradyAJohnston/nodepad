@@ -6,10 +6,9 @@ from bpy.props import IntProperty
 
 CLASSES = panel.CLASSES + pref.CLASSES
 
-from .documenter import MenuItemDocummenter, Documenter
+from .documenter import Documenter
 
 __all__ = [
-    "MenuItemDocummenter",
     "Documenter",
 ]
 

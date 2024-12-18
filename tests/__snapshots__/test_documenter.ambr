@@ -1,0 +1,125 @@
+# serializer version: 1
+# name: test_documenter
+  '''
+  
+  ## Blend Hair Curves
+  
+  
+  
+  ### Outputs
+  
+  |Description|Socket            |
+  |-----------|------------------:|
+  |           |`Geometry::Geometry`|
+  
+  : {tbl-colwidths="[90, 10]"}
+  
+  
+  
+  
+  ### Inputs
+  
+  |Socket               |Default|Description                                    |
+  |---------------------|:-------:|-----------------------------------------------|
+  |`Geometry::Geometry` |_None_ |Input Geometry (may include other than curves) |
+  |`Factor::Float`      |1.0    |Factor to blend overall effect                 |
+  |`Blend Radius::Float`|0.05   |Radius to select neighbors for blending        |
+  |`Blend Neighbors::Int`|10     |Amount of neighbors used for blending          |
+  |`Preserve Length::Bool`|False  |Preserve each curve's length during deformation|
+  
+  : {tbl-colwidths="[10, 15, 80]"}
+  
+  
+  
+  '''
+# ---
+# name: test_documenter.1
+  '''
+  
+  ## Curve Info
+  
+  
+  
+  ### Outputs
+  
+  |Description                                    |Socket            |
+  |-----------------------------------------------|------------------:|
+  |Index of each Curve                            |`Curve Index::Int`|
+  |ID of each curve                               |`Curve ID::Int`   |
+  |Length of each curve                           |`Length::Float`   |
+  |Direction from root to tip of each curve       |`Direction::Vector`|
+  |Random vector for each curve                   |`Random::Float`   |
+  |Attachment surface UV coordinates of each curve|`Surface UV::Vector`|
+  
+  : {tbl-colwidths="[90, 10]"}
+  
+  
+  
+  
+  
+  '''
+# ---
+# name: test_documenter.2
+  '''
+  
+  ## Curve Root
+  
+  
+  
+  ### Outputs
+  
+  |Description                             |Socket                |
+  |----------------------------------------|----------------------:|
+  |Boolean selection of curve root points  |`Root Selection::Bool`|
+  |Position of the root point of a curve   |`Root Position::Vector`|
+  |Direction of the root segment of a curve|`Root Direction::Vector`|
+  |Index of the root point of a curve      |`Root Index::Int`     |
+  
+  : {tbl-colwidths="[90, 10]"}
+  
+  
+  
+  
+  
+  '''
+# ---
+# name: test_documenter.3
+  '''
+  
+  ## Attach Hair Curves to Surface
+  
+  
+  
+  ### Outputs
+  
+  |Description                                   |Socket                       |
+  |----------------------------------------------|-----------------------------:|
+  |                                              |`Geometry::Geometry`         |
+  |Surface UV coordinates at the attachment point|`Surface UV Coordinate::Vector`|
+  |Surface normal at the attachment point        |`Surface Normal::Vector`     |
+  
+  : {tbl-colwidths="[90, 10]"}
+  
+  
+  
+  
+  ### Inputs
+  
+  |Socket                       |Default        |Description                                                       |
+  |-----------------------------|:---------------:|------------------------------------------------------------------|
+  |`Geometry::Geometry`         |_None_         |Input Geometry (may include other than curves)                    |
+  |`Surface::Geometry`          |_None_         |Surface geometry to attach hair curves to                         |
+  |`Surface::Object`            |None           |Surface Object to attach to (needs to have matching transforms)   |
+  |`Surface UV Map::Vector`     |[0.0, 0.0, 0.0]|Surface UV map used for attachment                                |
+  |`Surface Rest Position::Bool`|False          |Set the surface mesh into its rest position before attachment     |
+  |`Sample Attachment UV::Bool` |True           |Sample the surface UV map at the attachment point                 |
+  |`Snap to Surface::Bool`      |True           |Snap the root of each curve to the closest surface point          |
+  |`Align to Surface Normal::Bool`|True           |Align the curve to the surface normal (needs a guide as reference)|
+  |`Blend along Curve::Float`   |0.0            |Blend deformation along each curve from the root                  |
+  
+  : {tbl-colwidths="[10, 15, 80]"}
+  
+  
+  
+  '''
+# ---
