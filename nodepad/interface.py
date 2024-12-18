@@ -194,7 +194,7 @@ class InterfaceGroup:
             + "}"
         )
 
-        return "\n\n: {}\n\n".format(widths_str)
+        return "\n\n: {}".format(widths_str)
 
     def as_markdown(self, title: str = "", level: int = 3) -> str:
         body: str = self.body()

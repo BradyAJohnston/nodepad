@@ -4,13 +4,7 @@
   
   ## Blend Hair Curves
   
-  
-  
-  
-  
   ![](https://imgur.com/xdeTZR7.mp4)
-  
-  
   
   ### Outputs
   
@@ -19,9 +13,6 @@
   |           |`Geometry::Geometry`|
   
   : {tbl-colwidths="[90, 10]"}
-  
-  
-  
   
   ### Inputs
   
@@ -35,8 +26,6 @@
   
   : {tbl-colwidths="[10, 15, 80]"}
   
-  
-  
   '''
 # ---
 # name: test_documented_with_json.1
@@ -44,15 +33,9 @@
   
   ## Displace Hair Curves
   
-  
-  
-  
-  
   ![](https://imgur.com/xdeTZR7.mp4)
   
   ![](https://imgur.com/xdeTZR7.mp4)
-  
-  
   
   ### Outputs
   
@@ -61,9 +44,6 @@
   |           |`Geometry::Geometry`|
   
   : {tbl-colwidths="[90, 10]"}
-  
-  
-  
   
   ### Inputs
   
@@ -81,8 +61,6 @@
   
   : {tbl-colwidths="[10, 15, 80]"}
   
-  
-  
   '''
 # ---
 # name: test_documented_with_json.2
@@ -90,13 +68,7 @@
   
   ## Frizz Hair Curves
   
-  
-  
-  
-  
   ![](https://imgur.com/xdeTZR7.mp4)
-  
-  
   
   ### Outputs
   
@@ -106,9 +78,6 @@
   |Vector by which each point was offset during deformation|`Offset Vector::Vector`|
   
   : {tbl-colwidths="[90, 10]"}
-  
-  
-  
   
   ### Inputs
   
@@ -124,8 +93,6 @@
   
   : {tbl-colwidths="[10, 15, 80]"}
   
-  
-  
   '''
 # ---
 # name: test_documented_with_json.3
@@ -133,15 +100,9 @@
   
   ## Roll Hair Curves
   
-  
-  
-  
-  
   ![](https://imgur.com/xdeTZR7.mp4)
   
   ![](https://imgur.com/xdeTZR7.mp4)
-  
-  
   
   ### Outputs
   
@@ -150,9 +111,6 @@
   |           |`Geometry::Geometry`|
   
   : {tbl-colwidths="[90, 10]"}
-  
-  
-  
   
   ### Inputs
   
@@ -174,8 +132,6 @@
   
   : {tbl-colwidths="[10, 15, 80]"}
   
-  
-  
   '''
 # ---
 # name: test_documented_with_json.4
@@ -183,13 +139,7 @@
   
   ## Braid Hair Curves
   
-  
-  
-  
-  
   ![](https://imgur.com/xdeTZR7.mp4)
-  
-  
   
   ### Outputs
   
@@ -201,9 +151,6 @@
   |Index of the strand within a braid that each curve belongs to|`Strand Index::Int`   |
   
   : {tbl-colwidths="[90, 10]"}
-  
-  
-  
   
   ### Inputs
   
@@ -233,8 +180,6 @@
   
   : {tbl-colwidths="[10, 15, 80]"}
   
-  
-  
   '''
 # ---
 # name: test_documented_with_json.5
@@ -242,13 +187,7 @@
   
   ## Curve Info
   
-  
-  
-  
-  
   ![](https://imgur.com/xdeTZR7.mp4)
-  
-  
   
   ### Outputs
   
@@ -264,9 +203,6 @@
   : {tbl-colwidths="[90, 10]"}
   
   
-  
-  
-  
   '''
 # ---
 # name: test_documented_with_json.6
@@ -274,15 +210,9 @@
   
   ## Curve Root
   
-  
-  
-  
-  
   ![](https://imgur.com/xdeTZR7.mp4)
   
   ![](https://imgur.com/xdeTZR7.mp4)
-  
-  
   
   ### Outputs
   
@@ -296,9 +226,6 @@
   : {tbl-colwidths="[90, 10]"}
   
   
-  
-  
-  
   '''
 # ---
 # name: test_documented_with_json.7
@@ -306,13 +233,7 @@
   
   ## Attach Hair Curves to Surface
   
-  
-  
-  
-  
   ![](https://imgur.com/xdeTZR7.mp4)
-  
-  
   
   ### Outputs
   
@@ -323,9 +244,6 @@
   |Surface normal at the attachment point        |`Surface Normal::Vector`     |
   
   : {tbl-colwidths="[90, 10]"}
-  
-  
-  
   
   ### Inputs
   
@@ -343,15 +261,12 @@
   
   : {tbl-colwidths="[10, 15, 80]"}
   
-  
-  
   '''
 # ---
 # name: test_documenter
   '''
   
   ## Blend Hair Curves
-  
   
   
   ### Outputs
@@ -361,9 +276,6 @@
   |           |`Geometry::Geometry`|
   
   : {tbl-colwidths="[90, 10]"}
-  
-  
-  
   
   ### Inputs
   
@@ -377,15 +289,12 @@
   
   : {tbl-colwidths="[10, 15, 80]"}
   
-  
-  
   '''
 # ---
 # name: test_documenter.1
   '''
   
   ## Displace Hair Curves
-  
   
   
   ### Outputs
@@ -395,9 +304,6 @@
   |           |`Geometry::Geometry`|
   
   : {tbl-colwidths="[90, 10]"}
-  
-  
-  
   
   ### Inputs
   
@@ -415,15 +321,12 @@
   
   : {tbl-colwidths="[10, 15, 80]"}
   
-  
-  
   '''
 # ---
 # name: test_documenter.2
   '''
   
   ## Frizz Hair Curves
-  
   
   
   ### Outputs
@@ -434,9 +337,6 @@
   |Vector by which each point was offset during deformation|`Offset Vector::Vector`|
   
   : {tbl-colwidths="[90, 10]"}
-  
-  
-  
   
   ### Inputs
   
@@ -452,15 +352,12 @@
   
   : {tbl-colwidths="[10, 15, 80]"}
   
-  
-  
   '''
 # ---
 # name: test_documenter.3
   '''
   
   ## Roll Hair Curves
-  
   
   
   ### Outputs
@@ -470,9 +367,6 @@
   |           |`Geometry::Geometry`|
   
   : {tbl-colwidths="[90, 10]"}
-  
-  
-  
   
   ### Inputs
   
@@ -494,15 +388,12 @@
   
   : {tbl-colwidths="[10, 15, 80]"}
   
-  
-  
   '''
 # ---
 # name: test_documenter.4
   '''
   
   ## Braid Hair Curves
-  
   
   
   ### Outputs
@@ -515,9 +406,6 @@
   |Index of the strand within a braid that each curve belongs to|`Strand Index::Int`   |
   
   : {tbl-colwidths="[90, 10]"}
-  
-  
-  
   
   ### Inputs
   
@@ -547,15 +435,12 @@
   
   : {tbl-colwidths="[10, 15, 80]"}
   
-  
-  
   '''
 # ---
 # name: test_documenter.5
   '''
   
   ## Curve Info
-  
   
   
   ### Outputs
@@ -570,9 +455,6 @@
   |Attachment surface UV coordinates of each curve|`Surface UV::Vector`|
   
   : {tbl-colwidths="[90, 10]"}
-  
-  
-  
   
   
   '''
@@ -583,7 +465,6 @@
   ## Curve Root
   
   
-  
   ### Outputs
   
   |Description                             |Socket                |
@@ -596,16 +477,12 @@
   : {tbl-colwidths="[90, 10]"}
   
   
-  
-  
-  
   '''
 # ---
 # name: test_documenter.7
   '''
   
   ## Attach Hair Curves to Surface
-  
   
   
   ### Outputs
@@ -617,9 +494,6 @@
   |Surface normal at the attachment point        |`Surface Normal::Vector`     |
   
   : {tbl-colwidths="[90, 10]"}
-  
-  
-  
   
   ### Inputs
   
@@ -636,8 +510,6 @@
   |`Blend along Curve::Float`   |0.0            |Blend deformation along each curve from the root                  |
   
   : {tbl-colwidths="[10, 15, 80]"}
-  
-  
   
   '''
 # ---
