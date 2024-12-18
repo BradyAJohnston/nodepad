@@ -2,7 +2,7 @@
 
 
 [![codecov](https://codecov.io/gh/BradyAJohnston/nodepad/graph/badge.svg?token=KFuu67hzAz)](https://codecov.io/gh/BradyAJohnston/nodepad)
-![PyPI - Python Version](https://img.shields.io/pypi/pyversions/nodepad)
+![PyPI - Version](https://img.shields.io/pypi/v/nodepad)
 ![example workflow](https://github.com/bradyajohnston/nodepad/actions/workflows/tests.yml/badge.svg)
 ![example workflow](https://github.com/bradyajohnston/nodepad/actions/workflows/ci-cd.yml/badge.svg)
 
