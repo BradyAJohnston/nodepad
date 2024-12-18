@@ -1,0 +1,45 @@
+name: Run Tests
+
+on: 
+    push:
+      branches: ["main"]
+    pull_request:
+      branches: ["*"]
+    
+jobs:
+    build:
+        runs-on: ${{ matrix.os }}
+        strategy:
+            max-parallel: 4
+            fail-fast: false
+            matrix:
+              version: ["4.2", "4.3"]
+              os: [macos-14]
+        steps:
+            - uses: actions/checkout@v4
+            - name: Test in Blender MacOS ARM
+              if: matrix.os == 'macos-14'
+              run: |
+                curl -L -o blender.dmg https://download.blender.org/release/Blender${{ matrix.version }}/blender-${{ matrix.version }}.0-macos-arm64.dmg
+                hdiutil attach blender.dmg
+                cp -R /Volumes/Blender/Blender.app /Applications/
+                hdiutil detach /Volumes/Blender
+                /Applications/Blender.app/Contents/MacOS/Blender -b -P tests/python.py -- -m pip install uv
+                /Applications/Blender.app/Contents/MacOS/Blender -b -P tests/python.py -- -m uv pip install -r pyproject.toml --all-extras
+                /Applications/Blender.app/Contents/MacOS/Blender -b -P tests/python.py -- -m uv pip install -e .
+            
+            - name: Run tests in Blender
+              run: |
+                /Applications/Blender.app/Contents/MacOS/Blender -b -P tests/python.py --  -m uv run /Applications/Blender.app/Contents/Resources/${{ matrix.version }}/python/bin/pytest --cov --cov-report=xml
+    
+            - name: Upload coverage to Codecov
+              uses: codecov/codecov-action@v5
+              with:
+                token: ${{ secrets.CODECOV_TOKEN }}
+            
+            - name: Upload test results to Codecov
+              if: ${{ !cancelled() }}
+              uses: codecov/test-results-action@v1
+              with:
+                token: ${{ secrets.CODECOV_TOKEN }}
+    

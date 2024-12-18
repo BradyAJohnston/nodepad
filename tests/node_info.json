@@ -1,0 +1,53 @@
+{
+    "Blend Hair Curves": {
+        "videos": [
+            "https://imgur.com/xdeTZR7"
+        ],
+        "description": "Some extra information that goes here"
+    },
+    "Displace Hair Curves": {
+        "videos": [
+            "https://imgur.com/xdeTZR7",
+            "https://imgur.com/xdeTZR7"
+        ],
+        "description": "Displaces hair curves for a more dynamic look"
+    },
+    "Frizz Hair Curves": {
+        "videos": [
+            "https://imgur.com/xdeTZR7"
+        ],
+        "description": "Adds frizz to hair curves for a natural appearance"
+    },
+    "Roll Hair Curves": {
+        "videos": [
+            "https://imgur.com/xdeTZR7",
+            "https://imgur.com/xdeTZR7"
+        ],
+        "description": "Rolls hair curves to create a twisted effect"
+    },
+    "Braid Hair Curves": {
+        "videos": [
+            "https://imgur.com/xdeTZR7"
+        ],
+        "description": "Braids hair curves for a complex hairstyle"
+    },
+    "Curve Info": {
+        "videos": [
+            "https://imgur.com/xdeTZR7"
+        ],
+        "description": "Provides information about the hair curves"
+    },
+    "Curve Root": {
+        "videos": [
+            "https://imgur.com/xdeTZR7",
+            "https://imgur.com/xdeTZR7"
+        ],
+        "description": "Defines the root of the hair curves"
+    },
+    "Attach Hair Curves to Surface": {
+        "videos": [
+            "https://imgur.com/xdeTZR7"
+        ],
+        "description": "Attaches hair curves to a surface for stability"
+    }
+}
