@@ -2,7 +2,7 @@ import bpy
 from bpy.types import Panel, Context, UILayout, GeometryNodeTree, UIList
 
 
-class NOODLENOTES_UL_NodeTrees(UIList):
+class NODEPAD_UL_NodeTrees(UIList):
     def draw_item(
         self, context, layout, data, item, icon, active_data, active_propname, index
     ):
@@ -87,16 +87,16 @@ def update_node_group_list(context):
 # update_node_group_list()
 
 
-class NN_PT_Noodle_Notes(Panel):
-    bl_label = "Noodle Notes"
-    bl_idname = "NODE_PT_nn_noodle_notes"
+class NN_PT_Node_Pad(Panel):
+    bl_label = "NodePad"
+    bl_idname = "NODE_PT_nn_Node_Pad"
     bl_space_type = "NODE_EDITOR"
     bl_region_type = "UI"
 
     def draw(self, context: Context):
         layout = self.layout
         layout.template_list(
-            "NOODLENOTES_UL_NodeTrees",
+            "NODEPAD_UL_NodeTrees",
             "a_panel_name",
             bpy.data,
             "node_groups",
@@ -108,4 +108,4 @@ class NN_PT_Noodle_Notes(Panel):
         )
 
 
-CLASSES = [NN_PT_Noodle_Notes, NOODLENOTES_UL_NodeTrees]
+CLASSES = [NN_PT_Node_Pad, NODEPAD_UL_NodeTrees]

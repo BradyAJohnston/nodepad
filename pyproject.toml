@@ -1,5 +1,5 @@
 [project]
-name = "noodlenotes"
+name = "nodepad"
 version = "0.1.0"
 description = "Generate node group documentation from Blender files"
 readme = "README.md"
@@ -9,9 +9,9 @@ maintainers = [
     ]
 
 [project.urls]
-Homepage = "https://bradyajohnston.github.io/NoodleNotes"
-Repository = "https://github.com/bradyajohnston/NoodleNotes"
-Documentation = "https://bradyajohnston.github.io/NoodleNotes"
+Homepage = "https://bradyajohnston.github.io/nodepad"
+Repository = "https://github.com/bradyajohnston/nodepad"
+Documentation = "https://bradyajohnston.github.io/nodepad"
 
 [project.optional-dependencies]
 bpy =  ["bpy>=4.2"]

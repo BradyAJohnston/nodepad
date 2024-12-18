@@ -2,11 +2,11 @@ schema_version = "1.0.0"
 
 id = "molecularnodes"
 version = "0.0.9"
-name = "Noodle Notes"
-tagline = "A helper for documenting user supplied node groups"
+name = "NodePad"
+tagline = "Create beautiful documentation for your node groups"
 maintainer = "Brady Johnston<brady.johnston@me.com>"
 type = "add-on"
-website = "https://bradyajohnston.github.io/NoodleNotes"
+website = "https://bradyajohnston.github.io/nodepad"
 tags = [
 	"Geometry Nodes"
 ]
