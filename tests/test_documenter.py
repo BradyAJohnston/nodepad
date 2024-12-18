@@ -5,6 +5,10 @@ import pytest
 
 nodes = [
     "Blend Hair Curves",
+    "Displace Hair Curves",
+    "Frizz Hair Curves",
+    "Roll Hair Curves",
+    "Braid Hair Curves",
     "Curve Info",
     "Curve Root",
     "Attach Hair Curves to Surface",
