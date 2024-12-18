@@ -92,6 +92,10 @@ class Documenter:
     def description(self) -> Description:
         return self._description
 
+    @description.setter
+    def description(self, value: str) -> None:
+        self._description = Description(value)
+
     @property
     def videos(self) -> Videos:
         return Videos([x for x in self._video_links])

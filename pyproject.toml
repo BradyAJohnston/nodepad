@@ -1,6 +1,6 @@
 [project]
 name = "nodepad"
-version = "0.1.4"
+version = "0.1.5"
 description = "Generate node group documentation from Blender files"
 readme = "README.md"
 dependencies = ["numpy<2.0,>1.26"]
