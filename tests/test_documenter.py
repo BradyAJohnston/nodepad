@@ -1,7 +1,10 @@
 import bpy
+import nodepad
 from nodepad import Documenter
 from pathlib import Path
 import pytest
+
+nodepad.register()
 
 nodes = [
     "Blend Hair Curves",
@@ -27,3 +30,6 @@ def test_documenter(snapshot):
         )
 
         assert snapshot == Documenter(bpy.data.node_groups[node_name]).as_markdown()
+
+
+nodepad.unregister()

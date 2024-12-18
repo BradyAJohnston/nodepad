@@ -21,11 +21,17 @@ jobs:
               with:
                 python-version: 3.11.7
                 cache: pip
+            - name: Test in Blender MacOS ARM
+              if: matrix.os == 'macos-14'
+              run: |
+                curl -L -o blender.dmg https://download.blender.org/release/Blender${{ matrix.version }}/blender-${{ matrix.version }}.0-macos-arm64.dmg
+                hdiutil attach blender.dmg
+                cp -R /Volumes/Blender/Blender.app /Applications/
+                hdiutil detach /Volumes/Blender
+                /Applications/Blender.app/Contents/MacOS/Blender -b -P tests/python.py -- -m pip install uv
+                /Applications/Blender.app/Contents/MacOS/Blender -b -P tests/python.py -- -m uv pip install -r pyproject.toml --extra=test
+                /Applications/Blender.app/Contents/MacOS/Blender -b -P tests/python.py -- -m uv pip run pytest -v --cov-report=xml
 
-            - name: Install the latest version of uv
-              uses: astral-sh/setup-uv@v4
-              with:
-                version: "latest"
             
             - name: Install
               run: |
