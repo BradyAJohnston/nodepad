@@ -2,3 +2,4 @@
 *__pycache__*
 /nodepad.egg-info
 /docs/reference
+/docs/_build
