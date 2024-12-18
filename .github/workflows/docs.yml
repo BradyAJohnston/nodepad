@@ -22,13 +22,13 @@ jobs:
         with:
             version: "latest"
 
-      - name: Test in Blender MacOS ARM
+      - name: Generate Node Docs
         run: |
           curl -L -o blender.dmg https://download.blender.org/release/Blender${{ env.version }}/blender-${{ env.version }}.0-macos-arm64.dmg
           hdiutil attach blender.dmg
           cp -R /Volumes/Blender/Blender.app /Applications/
           hdiutil detach /Volumes/Blender
-          /Applications/Blender.app/Contents/MacOS/Blender -b -P tests/python.py -- -m pip -e .
+          /Applications/Blender.app/Contents/MacOS/Blender -b -P tests/python.py -- -m pip install -e .
           /Applications/Blender.app/Contents/MacOS/Blender -b -P docs/generate.py
 
       - name: Build Docs
