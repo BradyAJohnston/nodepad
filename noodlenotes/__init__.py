@@ -6,6 +6,13 @@ from bpy.props import IntProperty
 
 CLASSES = panel.CLASSES + pref.CLASSES
 
+from .documenter import MenuItemDocummenter, Documenter
+
+__all__ = [
+    "MenuItemDocummenter",
+    "Documenter",
+]
+
 
 def register():
     for cls in CLASSES:

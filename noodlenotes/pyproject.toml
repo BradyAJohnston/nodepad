@@ -1,0 +1,23 @@
+[project]
+name = "noodlenotes"
+version = "0.1.0"
+description = "Generate node group documentation from Blender files"
+readme = "README.md"
+# dependencies = ["MDAnalysis>=2.7.0", "biotite~=0.40", "mrcfile", "starfile"]
+maintainers = [
+    {name = "Brady Johnston",    email = "brady.johnston@me.com"}
+    ]
+
+[project.urls]
+Homepage = "https://bradyajohnston.github.io/NoodleNotes"
+Repository = "https://github.com/bradyajohnston/NoodleNotes"
+Documentation = "https://bradyajohnston.github.io/NoodleNotes"
+
+[project.optional-dependencies]
+bpy =  ["bpy>=4.2"]
+docs = ["quartodoc", "tomlkit"]
+test = ["pytest", "pytest-cov", "syrupy", "scipy"]
+dev = ["pytest", "pytest-cov", "syrupy", "scipy", "fake-bpy-module"]
+
+[tool.setuptools]
+include-package-data = true
