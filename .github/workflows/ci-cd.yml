@@ -2,6 +2,7 @@ on:
     push:
         tags:
             - 'v*'
+        branches: main
 
 jobs:
     pypi-publish:
@@ -12,7 +13,7 @@ jobs:
         name: pypi
         url: https://pypi.org/p/nodepad
       permissions:
-        id-token: write  # IMPORTANT: this permission is mandatory for trusted publishing
+        id-token: write
       steps:
         - name: Set up Python
           uses: actions/setup-python@v2
@@ -24,6 +25,9 @@ jobs:
             version: "latest"
         - name: build
           run: |
+            pwd
+            ls -lrta
             uv build
-        - name: Publish package distributions to PyPI  
+
+        - name: Publish to PyPI  
           uses: pypa/gh-action-pypi-publish@release/v1
