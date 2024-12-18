@@ -29,11 +29,11 @@ jobs:
                 cp -R /Volumes/Blender/Blender.app /Applications/
                 hdiutil detach /Volumes/Blender
                 /Applications/Blender.app/Contents/MacOS/Blender -b -P tests/python.py -- -m pip install uv
-                /Applications/Blender.app/Contents/MacOS/Blender -b -P tests/python.py -- -m uv pip install -r pyproject.toml --extra=test
+                /Applications/Blender.app/Contents/MacOS/Blender -b -P tests/python.py -- -m uv pip install -r pyproject.toml --extra=test 
             
             - name: Run tests in Blender
               run: |
-                /Applications/Blender.app/Contents/MacOS/Blender -b -P tests/python.py -- -m uv pip run pytest -v --cov-report=xml
+                /Applications/Blender.app/Contents/MacOS/Blender -b -P tests/python.py -- -m uv pip run pytest -v --cov=nodepad --cov-report=xml:coverage.xml
     
             - name: Upload coverage reports to Codecov
               uses: codecov/codecov-action@v5
