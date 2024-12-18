@@ -17,10 +17,6 @@ jobs:
               os: [macos-14]
         steps:
             - uses: actions/checkout@v4
-            - uses: actions/setup-python@v5
-              with:
-                python-version: 3.11.7
-                cache: pip
             - name: Test in Blender MacOS ARM
               if: matrix.os == 'macos-14'
               run: |
@@ -33,16 +29,11 @@ jobs:
             
             - name: Run tests in Blender
               run: |
-                /Applications/Blender.app/Contents/MacOS/Blender -b -P tests/python.py -- -m uv pip run pytest -v --cov=nodepad --cov-report=xml:coverage.xml
+                /Applications/Blender.app/Contents/MacOS/Blender -b -P tests/python.py -- -m uv pip run pytest --cov --junitxml=junit.xml -o junit_family=legacy
     
-            - name: Upload coverage reports to Codecov
-              uses: codecov/codecov-action@v5
-              if: matrix.os == 'macos-14' && matrix.version == '4.2'
+            - name: Upload test results to Codecov
+              if: ${{ !cancelled() }}
+              uses: codecov/test-results-action@v1
               with:
                 token: ${{ secrets.CODECOV_TOKEN }}
-                name: coverage.xml
-
-            - name: Upload coverage reports to Codecov
-              if: matrix.os == 'maxos-14' && matrix.version == '4.2'
-              uses: codecov/codecov-action@v3
     
