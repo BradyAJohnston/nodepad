@@ -1,24 +1,25 @@
 [
   {
-    "objectID": "reference/documenter.Documenter.html",
-    "href": "reference/documenter.Documenter.html",
-    "title": "documenter.Documenter",
+    "objectID": "reference/index.html",
+    "href": "reference/index.html",
+    "title": "Function reference",
     "section": "",
-    "text": "documenter.Documenter\ndocumenter.Documenter(self, tree)"
+    "text": "For documenting a node group\n\n\n\nDocumenter\nA class to document a Blender NodeTree.",
+    "crumbs": [
+      "Reference",
+      "Function reference"
+    ]
   },
   {
-    "objectID": "reference/Documenter.as_markdown.html",
-    "href": "reference/Documenter.as_markdown.html",
-    "title": "Documenter.as_markdown",
+    "objectID": "reference/index.html#documenter",
+    "href": "reference/index.html#documenter",
+    "title": "Function reference",
     "section": "",
-    "text": "Documenter.as_markdown()\nConvert collected items to a markdown formatted string.\n\n\n\n\n\n\n\n\n\n\nName\nType\nDescription\n\n\n\n\n\nstr\nA string containing the collected items formatted as markdown."
-  },
-  {
-    "objectID": "reference/Documenter.as_markdown.html#returns",
-    "href": "reference/Documenter.as_markdown.html#returns",
-    "title": "Documenter.as_markdown",
-    "section": "",
-    "text": "Name\nType\nDescription\n\n\n\n\n\nstr\nA string containing the collected items formatted as markdown."
+    "text": "For documenting a node group\n\n\n\nDocumenter\nA class to document a Blender NodeTree.",
+    "crumbs": [
+      "Reference",
+      "Function reference"
+    ]
   },
   {
     "objectID": "example.html",
@@ -191,28 +192,6 @@
       "Reference",
       "Documenter",
       "Documenter"
-    ]
-  },
-  {
-    "objectID": "reference/index.html",
-    "href": "reference/index.html",
-    "title": "Function reference",
-    "section": "",
-    "text": "For documenting a node group\n\n\n\nDocumenter\nA class to document a Blender NodeTree.",
-    "crumbs": [
-      "Reference",
-      "Function reference"
-    ]
-  },
-  {
-    "objectID": "reference/index.html#documenter",
-    "href": "reference/index.html#documenter",
-    "title": "Function reference",
-    "section": "",
-    "text": "For documenting a node group\n\n\n\nDocumenter\nA class to document a Blender NodeTree.",
-    "crumbs": [
-      "Reference",
-      "Function reference"
     ]
   }
 ]
