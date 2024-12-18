@@ -1,4 +1,352 @@
 # serializer version: 1
+# name: test_documented_with_json
+  '''
+  
+  ## Blend Hair Curves
+  
+  
+  
+  
+  
+  ![](https://imgur.com/xdeTZR7.mp4)
+  
+  
+  
+  ### Outputs
+  
+  |Description|Socket            |
+  |-----------|------------------:|
+  |           |`Geometry::Geometry`|
+  
+  : {tbl-colwidths="[90, 10]"}
+  
+  
+  
+  
+  ### Inputs
+  
+  |Socket               |Default|Description                                    |
+  |---------------------|:-------:|-----------------------------------------------|
+  |`Geometry::Geometry` |_None_ |Input Geometry (may include other than curves) |
+  |`Factor::Float`      |1.0    |Factor to blend overall effect                 |
+  |`Blend Radius::Float`|0.05   |Radius to select neighbors for blending        |
+  |`Blend Neighbors::Int`|10     |Amount of neighbors used for blending          |
+  |`Preserve Length::Bool`|False  |Preserve each curve's length during deformation|
+  
+  : {tbl-colwidths="[10, 15, 80]"}
+  
+  
+  
+  '''
+# ---
+# name: test_documented_with_json.1
+  '''
+  
+  ## Displace Hair Curves
+  
+  
+  
+  
+  
+  ![](https://imgur.com/xdeTZR7.mp4)
+  
+  ![](https://imgur.com/xdeTZR7.mp4)
+  
+  
+  
+  ### Outputs
+  
+  |Description|Socket            |
+  |-----------|------------------:|
+  |           |`Geometry::Geometry`|
+  
+  : {tbl-colwidths="[90, 10]"}
+  
+  
+  
+  
+  ### Inputs
+  
+  |Socket                            |Default        |Description                                                 |
+  |----------------------------------|:---------------:|------------------------------------------------------------|
+  |`Geometry::Geometry`              |_None_         |Input Geometry (may include other than curves)              |
+  |`Factor::Float`                   |1.0            |Factor to scale overall displacement                        |
+  |`Shape::Float`                    |0.5            |Shape of the influence along curves (0=constant, 0.5=linear)|
+  |`Object Space::Object`            |None           |Object used to define the displacement space                |
+  |`Displace Vector::Vector`         |[0.0, 0.0, 0.0]|Vector for displacement                                     |
+  |`Surface::Geometry`               |_None_         |Surface geometry used to sample the normal for displacement |
+  |`Surface::Object`                 |None           |Surface object used to sample the normal for displacement   |
+  |`Surface UV Map::Vector`          |[0.0, 0.0, 0.0]|Surface UV map used to sample the normal for displacement   |
+  |`Surface Normal Displacement::Float`|0.0            |Amount of displacemement along the surface normal           |
+  
+  : {tbl-colwidths="[10, 15, 80]"}
+  
+  
+  
+  '''
+# ---
+# name: test_documented_with_json.2
+  '''
+  
+  ## Frizz Hair Curves
+  
+  
+  
+  
+  
+  ![](https://imgur.com/xdeTZR7.mp4)
+  
+  
+  
+  ### Outputs
+  
+  |Description                                             |Socket               |
+  |--------------------------------------------------------|---------------------:|
+  |                                                        |`Geometry::Geometry` |
+  |Vector by which each point was offset during deformation|`Offset Vector::Vector`|
+  
+  : {tbl-colwidths="[90, 10]"}
+  
+  
+  
+  
+  ### Inputs
+  
+  |Socket                 |Default|Description                                                    |
+  |-----------------------|:-------:|---------------------------------------------------------------|
+  |`Geometry::Geometry`   |_None_ |Input Geometry (May include other than curves)                 |
+  |`Cumulative Offset::Bool`|True   |Apply offset cumulatively (previous points affect points after)|
+  |`Factor::Float`        |1.0    |Factor to blend overall effect                                 |
+  |`Distance::Float`      |0.01   |Overall distance factor for the deformation                    |
+  |`Shape::Float`         |0.5    |Shape of the influence along curves (0=constant, 0.5=linear)   |
+  |`Seed::Int`            |0      |Random Seed for the operation                                  |
+  |`Preserve Length::Bool`|False  |Preserve each curve's length during deformation                |
+  
+  : {tbl-colwidths="[10, 15, 80]"}
+  
+  
+  
+  '''
+# ---
+# name: test_documented_with_json.3
+  '''
+  
+  ## Roll Hair Curves
+  
+  
+  
+  
+  
+  ![](https://imgur.com/xdeTZR7.mp4)
+  
+  ![](https://imgur.com/xdeTZR7.mp4)
+  
+  
+  
+  ### Outputs
+  
+  |Description|Socket            |
+  |-----------|------------------:|
+  |           |`Geometry::Geometry`|
+  
+  : {tbl-colwidths="[90, 10]"}
+  
+  
+  
+  
+  ### Inputs
+  
+  |Socket                     |Default        |Description                                                   |
+  |---------------------------|:---------------:|--------------------------------------------------------------|
+  |`Geometry::Geometry`       |_None_         |                                                              |
+  |`Factor::Float`            |1.0            |Factor to blend overall effect                                |
+  |`Subdivision::Int`         |1              |Subdivision level applied before deformation                  |
+  |`Variation Level::Int`     |10             |Level of smoothing on the roll path to include shape variation|
+  |`Roll Length::Float`       |0.1            |Length of each curve to be rolled                             |
+  |`Roll Radius::Float`       |0.05           |Radius of the rolls                                           |
+  |`Roll Depth::Float`        |0.0            |Depth offset of the roll                                      |
+  |`Roll Taper::Float`        |0.0            |Taper of the roll                                             |
+  |`Retain Overall Shape::Float`|0.0            |Offset the roll along the original curve to retain shape      |
+  |`Roll Direction::Vector`   |[0.0, 0.0, 0.0]|Axis around which each curve is rolled                        |
+  |`Random Orientation::Float`|0.5            |Amount of randomization of the direction of the roll          |
+  |`Seed::Int`                |0              |Random Seed for the operation                                 |
+  |`Preserve Length::Bool`    |False          |Preserve each curve's length during deformation               |
+  
+  : {tbl-colwidths="[10, 15, 80]"}
+  
+  
+  
+  '''
+# ---
+# name: test_documented_with_json.4
+  '''
+  
+  ## Braid Hair Curves
+  
+  
+  
+  
+  
+  ![](https://imgur.com/xdeTZR7.mp4)
+  
+  
+  
+  ### Outputs
+  
+  |Description                                                  |Socket                |
+  |-------------------------------------------------------------|----------------------:|
+  |                                                             |`Geometry::Geometry`  |
+  |Guide index map that was used for the operation              |`Guide Index::Int`    |
+  |Parameter from 0 to 1 along the flare                        |`Flare Parameter::Float`|
+  |Index of the strand within a braid that each curve belongs to|`Strand Index::Int`   |
+  
+  : {tbl-colwidths="[90, 10]"}
+  
+  
+  
+  
+  ### Inputs
+  
+  |Socket                  |Default|Description                                                   |
+  |------------------------|:-------:|--------------------------------------------------------------|
+  |`Geometry::Geometry`    |_None_ |                                                              |
+  |`Guide Index::Int`      |-987654|Guide index map to be used. This input has priority           |
+  |`Guide Distance::Float` |0.1    |Minimum distance between two guides for new guide map         |
+  |`Guide Mask::Float`     |1.0    |Mask for which curves are eligible to be selected as guides   |
+  |`Existing Guide Map::Bool`|True   |Use the existing guide map attribute if available             |
+  |`Factor::Float`         |1.0    |Factor to blend overall effect                                |
+  |`Subdivision::Int`      |1      |Subdivision level applied before deformation                  |
+  |`Braid Start::Float`    |0.1    |Percentage along each curve to blend deformation from the root|
+  |`Radius::Float`         |0.1    |Overall radius of the braids                                  |
+  |`Shape::Float`          |0.5    |Shape of the braid radius along each curve                    |
+  |`Factor Min::Float`     |0.0    |Factor of the minimum radius of the braids                    |
+  |`Factor Max::Float`     |1.0    |Factor of the maximum radius of the braids                    |
+  |`Frequency::Float`      |1.0    |Frequency factor of the braids                                |
+  |`Thickness::Float`      |1.0    |Thickness of each strand of hair                              |
+  |`Thickness Shape::Float`|0.5    |Shape adjustment of the strand thickness for the braids       |
+  |`Shape Asymmetry::Float`|0.0    |Asymmetry of the shape adjustment of the strand thickness     |
+  |`Flare Length::Float`   |0.0    |Length of the flare at the end of the braid                   |
+  |`Flare Opening::Float`  |0.0    |Opening radius of the flare at the tip of the braid           |
+  |`Hair Tie::Geometry`    |_None_ |Geometry used for the hair tie instance (priority)            |
+  |`Hair Tie::Object`      |None   |Object used for the hair tie instance                         |
+  |`Hair Tie Scale::Float` |1.0    |Scale of the hair tie instance                                |
+  
+  : {tbl-colwidths="[10, 15, 80]"}
+  
+  
+  
+  '''
+# ---
+# name: test_documented_with_json.5
+  '''
+  
+  ## Curve Info
+  
+  
+  
+  
+  
+  ![](https://imgur.com/xdeTZR7.mp4)
+  
+  
+  
+  ### Outputs
+  
+  |Description                                    |Socket            |
+  |-----------------------------------------------|------------------:|
+  |Index of each Curve                            |`Curve Index::Int`|
+  |ID of each curve                               |`Curve ID::Int`   |
+  |Length of each curve                           |`Length::Float`   |
+  |Direction from root to tip of each curve       |`Direction::Vector`|
+  |Random vector for each curve                   |`Random::Float`   |
+  |Attachment surface UV coordinates of each curve|`Surface UV::Vector`|
+  
+  : {tbl-colwidths="[90, 10]"}
+  
+  
+  
+  
+  
+  '''
+# ---
+# name: test_documented_with_json.6
+  '''
+  
+  ## Curve Root
+  
+  
+  
+  
+  
+  ![](https://imgur.com/xdeTZR7.mp4)
+  
+  ![](https://imgur.com/xdeTZR7.mp4)
+  
+  
+  
+  ### Outputs
+  
+  |Description                             |Socket                |
+  |----------------------------------------|----------------------:|
+  |Boolean selection of curve root points  |`Root Selection::Bool`|
+  |Position of the root point of a curve   |`Root Position::Vector`|
+  |Direction of the root segment of a curve|`Root Direction::Vector`|
+  |Index of the root point of a curve      |`Root Index::Int`     |
+  
+  : {tbl-colwidths="[90, 10]"}
+  
+  
+  
+  
+  
+  '''
+# ---
+# name: test_documented_with_json.7
+  '''
+  
+  ## Attach Hair Curves to Surface
+  
+  
+  
+  
+  
+  ![](https://imgur.com/xdeTZR7.mp4)
+  
+  
+  
+  ### Outputs
+  
+  |Description                                   |Socket                       |
+  |----------------------------------------------|-----------------------------:|
+  |                                              |`Geometry::Geometry`         |
+  |Surface UV coordinates at the attachment point|`Surface UV Coordinate::Vector`|
+  |Surface normal at the attachment point        |`Surface Normal::Vector`     |
+  
+  : {tbl-colwidths="[90, 10]"}
+  
+  
+  
+  
+  ### Inputs
+  
+  |Socket                       |Default        |Description                                                       |
+  |-----------------------------|:---------------:|------------------------------------------------------------------|
+  |`Geometry::Geometry`         |_None_         |Input Geometry (may include other than curves)                    |
+  |`Surface::Geometry`          |_None_         |Surface geometry to attach hair curves to                         |
+  |`Surface::Object`            |None           |Surface Object to attach to (needs to have matching transforms)   |
+  |`Surface UV Map::Vector`     |[0.0, 0.0, 0.0]|Surface UV map used for attachment                                |
+  |`Surface Rest Position::Bool`|False          |Set the surface mesh into its rest position before attachment     |
+  |`Sample Attachment UV::Bool` |True           |Sample the surface UV map at the attachment point                 |
+  |`Snap to Surface::Bool`      |True           |Snap the root of each curve to the closest surface point          |
+  |`Align to Surface Normal::Bool`|True           |Align the curve to the surface normal (needs a guide as reference)|
+  |`Blend along Curve::Float`   |0.0            |Blend deformation along each curve from the root                  |
+  
+  : {tbl-colwidths="[10, 15, 80]"}
+  
+  
+  
+  '''
+# ---
 # name: test_documenter
   '''
   

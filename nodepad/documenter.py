@@ -55,6 +55,12 @@ class Documenter:
 
         return "\n\n" + videos + "\n\n"
 
+    def lookup_info(self, extra_json: dict) -> None:
+        try:
+            self._links = extra_json[self.name]["videos"]
+        except KeyError:
+            pass
+
     def collect_items(self):
         items = [
             self.title(),
