@@ -27,6 +27,8 @@ jobs:
           run: |
             pwd
             ls -lrta
+            ls -lrta ..
+            ls -lrta ../..
             uv build
 
         - name: Publish to PyPI  
