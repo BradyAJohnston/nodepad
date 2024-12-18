@@ -1,0 +1,218 @@
+[
+  {
+    "objectID": "reference/documenter.Documenter.html",
+    "href": "reference/documenter.Documenter.html",
+    "title": "documenter.Documenter",
+    "section": "",
+    "text": "documenter.Documenter\ndocumenter.Documenter(self, tree)"
+  },
+  {
+    "objectID": "reference/Documenter.as_markdown.html",
+    "href": "reference/Documenter.as_markdown.html",
+    "title": "Documenter.as_markdown",
+    "section": "",
+    "text": "Documenter.as_markdown()\nConvert collected items to a markdown formatted string.\n\n\n\n\n\n\n\n\n\n\nName\nType\nDescription\n\n\n\n\n\nstr\nA string containing the collected items formatted as markdown."
+  },
+  {
+    "objectID": "reference/Documenter.as_markdown.html#returns",
+    "href": "reference/Documenter.as_markdown.html#returns",
+    "title": "Documenter.as_markdown",
+    "section": "",
+    "text": "Name\nType\nDescription\n\n\n\n\n\nstr\nA string containing the collected items formatted as markdown."
+  },
+  {
+    "objectID": "example.html",
+    "href": "example.html",
+    "title": "Example Node Documentation",
+    "section": "",
+    "text": "Description\nSocket\n\n\n\n\n\nGeometry\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nSocket\nDefault\nDescription\n\n\n\n\nGeometry\nNone\nInput Geometry (may include other than curves)\n\n\nFactor\n1.0\nFactor to blend overall effect\n\n\nBlend Radius\n0.05\nRadius to select neighbors for blending\n\n\nBlend Neighbors\n10\nAmount of neighbors used for blending\n\n\nPreserve Length\nFalse\nPreserve each curve’s length during deformation\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nDescription\nSocket\n\n\n\n\n\nGeometry\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nSocket\nDefault\nDescription\n\n\n\n\nGeometry\nNone\nInput Geometry (may include other than curves)\n\n\nFactor\n1.0\nFactor to scale overall displacement\n\n\nShape\n0.5\nShape of the influence along curves (0=constant, 0.5=linear)\n\n\nObject Space\nNone\nObject used to define the displacement space\n\n\nDisplace Vector\n[0.0, 0.0, 0.0]\nVector for displacement\n\n\nSurface\nNone\nSurface geometry used to sample the normal for displacement\n\n\nSurface\nNone\nSurface object used to sample the normal for displacement\n\n\nSurface UV Map\n[0.0, 0.0, 0.0]\nSurface UV map used to sample the normal for displacement\n\n\nSurface Normal Displacement\n0.0\nAmount of displacemement along the surface normal\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nDescription\nSocket\n\n\n\n\n\nGeometry\n\n\nVector by which each point was offset during deformation\nOffset Vector\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nSocket\nDefault\nDescription\n\n\n\n\nGeometry\nNone\nInput Geometry (May include other than curves)\n\n\nCumulative Offset\nTrue\nApply offset cumulatively (previous points affect points after)\n\n\nFactor\n1.0\nFactor to blend overall effect\n\n\nDistance\n0.01\nOverall distance factor for the deformation\n\n\nShape\n0.5\nShape of the influence along curves (0=constant, 0.5=linear)\n\n\nSeed\n0\nRandom Seed for the operation\n\n\nPreserve Length\nFalse\nPreserve each curve’s length during deformation\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nDescription\nSocket\n\n\n\n\n\nGeometry\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nSocket\nDefault\nDescription\n\n\n\n\nGeometry\nNone\n\n\n\nFactor\n1.0\nFactor to blend overall effect\n\n\nSubdivision\n1\nSubdivision level applied before deformation\n\n\nVariation Level\n10\nLevel of smoothing on the roll path to include shape variation\n\n\nRoll Length\n0.1\nLength of each curve to be rolled\n\n\nRoll Radius\n0.05\nRadius of the rolls\n\n\nRoll Depth\n0.0\nDepth offset of the roll\n\n\nRoll Taper\n0.0\nTaper of the roll\n\n\nRetain Overall Shape\n0.0\nOffset the roll along the original curve to retain shape\n\n\nRoll Direction\n[0.0, 0.0, 0.0]\nAxis around which each curve is rolled\n\n\nRandom Orientation\n0.5\nAmount of randomization of the direction of the roll\n\n\nSeed\n0\nRandom Seed for the operation\n\n\nPreserve Length\nFalse\nPreserve each curve’s length during deformation\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nDescription\nSocket\n\n\n\n\n\nGeometry\n\n\nGuide index map that was used for the operation\nGuide Index\n\n\nParameter from 0 to 1 along the flare\nFlare Parameter\n\n\nIndex of the strand within a braid that each curve belongs to\nStrand Index\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nSocket\nDefault\nDescription\n\n\n\n\nGeometry\nNone\n\n\n\nGuide Index\n-987654\nGuide index map to be used. This input has priority\n\n\nGuide Distance\n0.1\nMinimum distance between two guides for new guide map\n\n\nGuide Mask\n1.0\nMask for which curves are eligible to be selected as guides\n\n\nExisting Guide Map\nTrue\nUse the existing guide map attribute if available\n\n\nFactor\n1.0\nFactor to blend overall effect\n\n\nSubdivision\n1\nSubdivision level applied before deformation\n\n\nBraid Start\n0.1\nPercentage along each curve to blend deformation from the root\n\n\nRadius\n0.1\nOverall radius of the braids\n\n\nShape\n0.5\nShape of the braid radius along each curve\n\n\nFactor Min\n0.0\nFactor of the minimum radius of the braids\n\n\nFactor Max\n1.0\nFactor of the maximum radius of the braids\n\n\nFrequency\n1.0\nFrequency factor of the braids\n\n\nThickness\n1.0\nThickness of each strand of hair\n\n\nThickness Shape\n0.5\nShape adjustment of the strand thickness for the braids\n\n\nShape Asymmetry\n0.0\nAsymmetry of the shape adjustment of the strand thickness\n\n\nFlare Length\n0.0\nLength of the flare at the end of the braid\n\n\nFlare Opening\n0.0\nOpening radius of the flare at the tip of the braid\n\n\nHair Tie\nNone\nGeometry used for the hair tie instance (priority)\n\n\nHair Tie\nNone\nObject used for the hair tie instance\n\n\nHair Tie Scale\n1.0\nScale of the hair tie instance\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nDescription\nSocket\n\n\n\n\nIndex of each Curve\nCurve Index\n\n\nID of each curve\nCurve ID\n\n\nLength of each curve\nLength\n\n\nDirection from root to tip of each curve\nDirection\n\n\nRandom vector for each curve\nRandom\n\n\nAttachment surface UV coordinates of each curve\nSurface UV\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nDescription\nSocket\n\n\n\n\nBoolean selection of curve root points\nRoot Selection\n\n\nPosition of the root point of a curve\nRoot Position\n\n\nDirection of the root segment of a curve\nRoot Direction\n\n\nIndex of the root point of a curve\nRoot Index\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nDescription\nSocket\n\n\n\n\n\nGeometry\n\n\nSurface UV coordinates at the attachment point\nSurface UV Coordinate\n\n\nSurface normal at the attachment point\nSurface Normal\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nSocket\nDefault\nDescription\n\n\n\n\nGeometry\nNone\nInput Geometry (may include other than curves)\n\n\nSurface\nNone\nSurface geometry to attach hair curves to\n\n\nSurface\nNone\nSurface Object to attach to (needs to have matching transforms)\n\n\nSurface UV Map\n[0.0, 0.0, 0.0]\nSurface UV map used for attachment\n\n\nSurface Rest Position\nFalse\nSet the surface mesh into its rest position before attachment\n\n\nSample Attachment UV\nTrue\nSample the surface UV map at the attachment point\n\n\nSnap to Surface\nTrue\nSnap the root of each curve to the closest surface point\n\n\nAlign to Surface Normal\nTrue\nAlign the curve to the surface normal (needs a guide as reference)\n\n\nBlend along Curve\n0.0\nBlend deformation along each curve from the root"
+  },
+  {
+    "objectID": "example.html#blend-hair-curves",
+    "href": "example.html#blend-hair-curves",
+    "title": "Example Node Documentation",
+    "section": "",
+    "text": "Description\nSocket\n\n\n\n\n\nGeometry\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nSocket\nDefault\nDescription\n\n\n\n\nGeometry\nNone\nInput Geometry (may include other than curves)\n\n\nFactor\n1.0\nFactor to blend overall effect\n\n\nBlend Radius\n0.05\nRadius to select neighbors for blending\n\n\nBlend Neighbors\n10\nAmount of neighbors used for blending\n\n\nPreserve Length\nFalse\nPreserve each curve’s length during deformation"
+  },
+  {
+    "objectID": "example.html#displace-hair-curves",
+    "href": "example.html#displace-hair-curves",
+    "title": "Example Node Documentation",
+    "section": "",
+    "text": "Description\nSocket\n\n\n\n\n\nGeometry\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nSocket\nDefault\nDescription\n\n\n\n\nGeometry\nNone\nInput Geometry (may include other than curves)\n\n\nFactor\n1.0\nFactor to scale overall displacement\n\n\nShape\n0.5\nShape of the influence along curves (0=constant, 0.5=linear)\n\n\nObject Space\nNone\nObject used to define the displacement space\n\n\nDisplace Vector\n[0.0, 0.0, 0.0]\nVector for displacement\n\n\nSurface\nNone\nSurface geometry used to sample the normal for displacement\n\n\nSurface\nNone\nSurface object used to sample the normal for displacement\n\n\nSurface UV Map\n[0.0, 0.0, 0.0]\nSurface UV map used to sample the normal for displacement\n\n\nSurface Normal Displacement\n0.0\nAmount of displacemement along the surface normal"
+  },
+  {
+    "objectID": "example.html#frizz-hair-curves",
+    "href": "example.html#frizz-hair-curves",
+    "title": "Example Node Documentation",
+    "section": "",
+    "text": "Description\nSocket\n\n\n\n\n\nGeometry\n\n\nVector by which each point was offset during deformation\nOffset Vector\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nSocket\nDefault\nDescription\n\n\n\n\nGeometry\nNone\nInput Geometry (May include other than curves)\n\n\nCumulative Offset\nTrue\nApply offset cumulatively (previous points affect points after)\n\n\nFactor\n1.0\nFactor to blend overall effect\n\n\nDistance\n0.01\nOverall distance factor for the deformation\n\n\nShape\n0.5\nShape of the influence along curves (0=constant, 0.5=linear)\n\n\nSeed\n0\nRandom Seed for the operation\n\n\nPreserve Length\nFalse\nPreserve each curve’s length during deformation"
+  },
+  {
+    "objectID": "example.html#roll-hair-curves",
+    "href": "example.html#roll-hair-curves",
+    "title": "Example Node Documentation",
+    "section": "",
+    "text": "Description\nSocket\n\n\n\n\n\nGeometry\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nSocket\nDefault\nDescription\n\n\n\n\nGeometry\nNone\n\n\n\nFactor\n1.0\nFactor to blend overall effect\n\n\nSubdivision\n1\nSubdivision level applied before deformation\n\n\nVariation Level\n10\nLevel of smoothing on the roll path to include shape variation\n\n\nRoll Length\n0.1\nLength of each curve to be rolled\n\n\nRoll Radius\n0.05\nRadius of the rolls\n\n\nRoll Depth\n0.0\nDepth offset of the roll\n\n\nRoll Taper\n0.0\nTaper of the roll\n\n\nRetain Overall Shape\n0.0\nOffset the roll along the original curve to retain shape\n\n\nRoll Direction\n[0.0, 0.0, 0.0]\nAxis around which each curve is rolled\n\n\nRandom Orientation\n0.5\nAmount of randomization of the direction of the roll\n\n\nSeed\n0\nRandom Seed for the operation\n\n\nPreserve Length\nFalse\nPreserve each curve’s length during deformation"
+  },
+  {
+    "objectID": "example.html#braid-hair-curves",
+    "href": "example.html#braid-hair-curves",
+    "title": "Example Node Documentation",
+    "section": "",
+    "text": "Description\nSocket\n\n\n\n\n\nGeometry\n\n\nGuide index map that was used for the operation\nGuide Index\n\n\nParameter from 0 to 1 along the flare\nFlare Parameter\n\n\nIndex of the strand within a braid that each curve belongs to\nStrand Index\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nSocket\nDefault\nDescription\n\n\n\n\nGeometry\nNone\n\n\n\nGuide Index\n-987654\nGuide index map to be used. This input has priority\n\n\nGuide Distance\n0.1\nMinimum distance between two guides for new guide map\n\n\nGuide Mask\n1.0\nMask for which curves are eligible to be selected as guides\n\n\nExisting Guide Map\nTrue\nUse the existing guide map attribute if available\n\n\nFactor\n1.0\nFactor to blend overall effect\n\n\nSubdivision\n1\nSubdivision level applied before deformation\n\n\nBraid Start\n0.1\nPercentage along each curve to blend deformation from the root\n\n\nRadius\n0.1\nOverall radius of the braids\n\n\nShape\n0.5\nShape of the braid radius along each curve\n\n\nFactor Min\n0.0\nFactor of the minimum radius of the braids\n\n\nFactor Max\n1.0\nFactor of the maximum radius of the braids\n\n\nFrequency\n1.0\nFrequency factor of the braids\n\n\nThickness\n1.0\nThickness of each strand of hair\n\n\nThickness Shape\n0.5\nShape adjustment of the strand thickness for the braids\n\n\nShape Asymmetry\n0.0\nAsymmetry of the shape adjustment of the strand thickness\n\n\nFlare Length\n0.0\nLength of the flare at the end of the braid\n\n\nFlare Opening\n0.0\nOpening radius of the flare at the tip of the braid\n\n\nHair Tie\nNone\nGeometry used for the hair tie instance (priority)\n\n\nHair Tie\nNone\nObject used for the hair tie instance\n\n\nHair Tie Scale\n1.0\nScale of the hair tie instance"
+  },
+  {
+    "objectID": "example.html#curve-info",
+    "href": "example.html#curve-info",
+    "title": "Example Node Documentation",
+    "section": "",
+    "text": "Description\nSocket\n\n\n\n\nIndex of each Curve\nCurve Index\n\n\nID of each curve\nCurve ID\n\n\nLength of each curve\nLength\n\n\nDirection from root to tip of each curve\nDirection\n\n\nRandom vector for each curve\nRandom\n\n\nAttachment surface UV coordinates of each curve\nSurface UV"
+  },
+  {
+    "objectID": "example.html#curve-root",
+    "href": "example.html#curve-root",
+    "title": "Example Node Documentation",
+    "section": "",
+    "text": "Description\nSocket\n\n\n\n\nBoolean selection of curve root points\nRoot Selection\n\n\nPosition of the root point of a curve\nRoot Position\n\n\nDirection of the root segment of a curve\nRoot Direction\n\n\nIndex of the root point of a curve\nRoot Index"
+  },
+  {
+    "objectID": "example.html#attach-hair-curves-to-surface",
+    "href": "example.html#attach-hair-curves-to-surface",
+    "title": "Example Node Documentation",
+    "section": "",
+    "text": "Description\nSocket\n\n\n\n\n\nGeometry\n\n\nSurface UV coordinates at the attachment point\nSurface UV Coordinate\n\n\nSurface normal at the attachment point\nSurface Normal\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nSocket\nDefault\nDescription\n\n\n\n\nGeometry\nNone\nInput Geometry (may include other than curves)\n\n\nSurface\nNone\nSurface geometry to attach hair curves to\n\n\nSurface\nNone\nSurface Object to attach to (needs to have matching transforms)\n\n\nSurface UV Map\n[0.0, 0.0, 0.0]\nSurface UV map used for attachment\n\n\nSurface Rest Position\nFalse\nSet the surface mesh into its rest position before attachment\n\n\nSample Attachment UV\nTrue\nSample the surface UV map at the attachment point\n\n\nSnap to Surface\nTrue\nSnap the root of each curve to the closest surface point\n\n\nAlign to Surface Normal\nTrue\nAlign the curve to the surface normal (needs a guide as reference)\n\n\nBlend along Curve\n0.0\nBlend deformation along each curve from the root"
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "nodepad",
+    "section": "",
+    "text": "This is a Quarto website.\nTo learn more about Quarto websites visit https://quarto.org/docs/websites."
+  },
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About",
+    "section": "",
+    "text": "About this site"
+  },
+  {
+    "objectID": "reference/Documenter.html",
+    "href": "reference/Documenter.html",
+    "title": "Documenter",
+    "section": "",
+    "text": "Documenter(self, tree)\nA class to document a Blender NodeTree.\n\n\n\n\n\n\n\n\n\n\n\nName\nType\nDescription\nDefault\n\n\n\n\ntree\nbpy.types.NodeTree\nThe Blender NodeTree to document.\nrequired\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nName\nType\nDescription\n\n\n\n\ntree\nbpy.types.NodeTree\nThe Blender NodeTree being documented.\n\n\nlevel\nint\nThe markdown heading level for the title.\n\n\ntitle\nTitle\nThe title of the NodeTree.\n\n\nitems\nlist of InterfaceItem\nThe items in the NodeTree’s interface.\n\n\ninputs\nInterfaceGroup\nThe input items in the NodeTree’s interface.\n\n\noutputs\nInterfaceGroup\nThe output items in the NodeTree’s interface.\n\n\n\n\n\n\nname : str The name of the NodeTree. description : Description The description of the NodeTree. videos : Videos The videos related to the NodeTree.\n\n\n\n\n\n\nName\nDescription\n\n\n\n\nas_markdown\nConvert collected items to a markdown formatted string.\n\n\ncollect_items\nCollects and returns a list of markdown-formatted items.\n\n\nlookup_info\nPopulate the video and other additional data from the extra_json dictionary.\n\n\n\n\n\n\nDocumenter.as_markdown()\nConvert collected items to a markdown formatted string.\n\n\n\n\n\n\n\n\n\n\nName\nType\nDescription\n\n\n\n\n\nstr\nA string containing the collected items formatted as markdown.\n\n\n\n\n\n\n\nDocumenter.collect_items()\nCollects and returns a list of markdown-formatted items.\nThis method gathers various attributes of the object, converts them to markdown format, and returns a list of these items. Only non-None items are included in the returned list.\n\n\n\n\n\n\n\n\n\n\nName\nType\nDescription\n\n\n\n\n\nlist of str\nA list of markdown-formatted strings representing the title, description, videos, outputs, and inputs of the object.\n\n\n\n\n\n\n\nDocumenter.lookup_info(extra_json)\nPopulate the video and other additional data from the extra_json dictionary.\nMatches up additional information that isn’t currently stored on the nodes themselves\n\n\n\n\n\n\n\n\n\n\n\nName\nType\nDescription\nDefault\n\n\n\n\nextra_json\ndict\nA dictionary containing additional JSON data. It is expected to have a structure where extra_json[self.name][\"videos\"] is a list of video links.\nrequired\n\n\n\n\n\n\n\n\n\nName\nType\nDescription\n\n\n\n\n\nNone\nThis method does not return any value.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nName\nType\nDescription\n\n\n\n\n\nKeyError\nIf self.name or \"videos\" key is not found in extra_json, the exception is caught and ignored.",
+    "crumbs": [
+      "Reference",
+      "Documenter",
+      "Documenter"
+    ]
+  },
+  {
+    "objectID": "reference/Documenter.html#parameters",
+    "href": "reference/Documenter.html#parameters",
+    "title": "Documenter",
+    "section": "",
+    "text": "Name\nType\nDescription\nDefault\n\n\n\n\ntree\nbpy.types.NodeTree\nThe Blender NodeTree to document.\nrequired",
+    "crumbs": [
+      "Reference",
+      "Documenter",
+      "Documenter"
+    ]
+  },
+  {
+    "objectID": "reference/Documenter.html#attributes",
+    "href": "reference/Documenter.html#attributes",
+    "title": "Documenter",
+    "section": "",
+    "text": "Name\nType\nDescription\n\n\n\n\ntree\nbpy.types.NodeTree\nThe Blender NodeTree being documented.\n\n\nlevel\nint\nThe markdown heading level for the title.\n\n\ntitle\nTitle\nThe title of the NodeTree.\n\n\nitems\nlist of InterfaceItem\nThe items in the NodeTree’s interface.\n\n\ninputs\nInterfaceGroup\nThe input items in the NodeTree’s interface.\n\n\noutputs\nInterfaceGroup\nThe output items in the NodeTree’s interface.",
+    "crumbs": [
+      "Reference",
+      "Documenter",
+      "Documenter"
+    ]
+  },
+  {
+    "objectID": "reference/Documenter.html#properties",
+    "href": "reference/Documenter.html#properties",
+    "title": "Documenter",
+    "section": "",
+    "text": "name : str The name of the NodeTree. description : Description The description of the NodeTree. videos : Videos The videos related to the NodeTree.",
+    "crumbs": [
+      "Reference",
+      "Documenter",
+      "Documenter"
+    ]
+  },
+  {
+    "objectID": "reference/Documenter.html#methods",
+    "href": "reference/Documenter.html#methods",
+    "title": "Documenter",
+    "section": "",
+    "text": "Name\nDescription\n\n\n\n\nas_markdown\nConvert collected items to a markdown formatted string.\n\n\ncollect_items\nCollects and returns a list of markdown-formatted items.\n\n\nlookup_info\nPopulate the video and other additional data from the extra_json dictionary.",
+    "crumbs": [
+      "Reference",
+      "Documenter",
+      "Documenter"
+    ]
+  },
+  {
+    "objectID": "reference/Documenter.html#nodepad.Documenter.as_markdown",
+    "href": "reference/Documenter.html#nodepad.Documenter.as_markdown",
+    "title": "Documenter",
+    "section": "",
+    "text": "Documenter.as_markdown()\nConvert collected items to a markdown formatted string.\n\n\n\n\n\n\n\n\n\n\nName\nType\nDescription\n\n\n\n\n\nstr\nA string containing the collected items formatted as markdown.",
+    "crumbs": [
+      "Reference",
+      "Documenter",
+      "Documenter"
+    ]
+  },
+  {
+    "objectID": "reference/Documenter.html#nodepad.Documenter.collect_items",
+    "href": "reference/Documenter.html#nodepad.Documenter.collect_items",
+    "title": "Documenter",
+    "section": "",
+    "text": "Documenter.collect_items()\nCollects and returns a list of markdown-formatted items.\nThis method gathers various attributes of the object, converts them to markdown format, and returns a list of these items. Only non-None items are included in the returned list.\n\n\n\n\n\n\n\n\n\n\nName\nType\nDescription\n\n\n\n\n\nlist of str\nA list of markdown-formatted strings representing the title, description, videos, outputs, and inputs of the object.",
+    "crumbs": [
+      "Reference",
+      "Documenter",
+      "Documenter"
+    ]
+  },
+  {
+    "objectID": "reference/Documenter.html#nodepad.Documenter.lookup_info",
+    "href": "reference/Documenter.html#nodepad.Documenter.lookup_info",
+    "title": "Documenter",
+    "section": "",
+    "text": "Documenter.lookup_info(extra_json)\nPopulate the video and other additional data from the extra_json dictionary.\nMatches up additional information that isn’t currently stored on the nodes themselves\n\n\n\n\n\n\n\n\n\n\n\nName\nType\nDescription\nDefault\n\n\n\n\nextra_json\ndict\nA dictionary containing additional JSON data. It is expected to have a structure where extra_json[self.name][\"videos\"] is a list of video links.\nrequired\n\n\n\n\n\n\n\n\n\nName\nType\nDescription\n\n\n\n\n\nNone\nThis method does not return any value.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nName\nType\nDescription\n\n\n\n\n\nKeyError\nIf self.name or \"videos\" key is not found in extra_json, the exception is caught and ignored.",
+    "crumbs": [
+      "Reference",
+      "Documenter",
+      "Documenter"
+    ]
+  },
+  {
+    "objectID": "reference/index.html",
+    "href": "reference/index.html",
+    "title": "Function reference",
+    "section": "",
+    "text": "For documenting a node group\n\n\n\nDocumenter\nA class to document a Blender NodeTree.",
+    "crumbs": [
+      "Reference",
+      "Function reference"
+    ]
+  },
+  {
+    "objectID": "reference/index.html#documenter",
+    "href": "reference/index.html#documenter",
+    "title": "Function reference",
+    "section": "",
+    "text": "For documenting a node group\n\n\n\nDocumenter\nA class to document a Blender NodeTree.",
+    "crumbs": [
+      "Reference",
+      "Function reference"
+    ]
+  }
+]
