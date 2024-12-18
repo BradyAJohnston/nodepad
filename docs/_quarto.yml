@@ -1,0 +1,60 @@
+project:
+  type: website
+  output-dir: _build
+
+filters: 
+  - filters.lua
+
+website:
+  title: "nodepad"
+  navbar:
+    left:
+      - href: index.qmd
+        text: Home
+      - href: reference/index.qmd
+        text: Reference
+      - example.qmd
+
+format:
+  html:
+    theme: 
+      - darkly
+      - style.scss
+    css: api/_styles-quartodoc.css
+    toc: true
+
+
+
+# tell quarto to read the generated sidebar
+metadata-files:
+  - reference/_sidebar.yml
+
+quartodoc:
+  # the name used to import the package you want to create reference docs for
+  package: nodepad
+  dir: reference
+
+  # write sidebar and style data
+  sidebar: reference/_sidebar.yml
+  # css: api/_styles-quartodoc.css
+
+  sections:
+    - title: Documenter
+      desc: For documenting a node group
+      options:
+        # members: []
+        children: flat
+      
+      contents:
+        - Documenter
+
+    # - title: Collections
+    #   desc: Working with collections in Blender
+    #   contents:
+    #     - create_collection
+    # - title: Objects
+    #   contents:
+    #     # - object.ObjectTracker
+    #     - BlenderObject
+    #     - create_object
+    #     - create_bob
