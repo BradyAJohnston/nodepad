@@ -10,3 +10,7 @@
 Helps with writing and generating nice documentation for custom node groups in Blender's Geometry Nodes.
 
 Early stages at the moment, currently used for generating and building docs for [Molecular Nodes](https://bradyajohnston.github.io/MolecularNodes)
+
+
+https://github.com/user-attachments/assets/5e5411df-a5e8-42e1-bd44-8f87cfbe9584
+
