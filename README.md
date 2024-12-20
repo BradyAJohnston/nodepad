@@ -7,6 +7,12 @@ Workflow](https://github.com/bradyajohnston/nodepad/actions/workflows/tests.yml/
 ![CD
 Workflow](https://github.com/bradyajohnston/nodepad/actions/workflows/ci-cd.yml/badge.svg)
 
+Early stages at the moment, currently used for generating and building
+docs for [Molecular
+Nodes](https://bradyajohnston.github.io/MolecularNodes)
+
+https://github.com/user-attachments/assets/5e5411df-a5e8-42e1-bd44-8f87cfbe9584
+
 ## Installation
 
 Available on PyPI, install with pip:
@@ -33,13 +39,6 @@ pip install nodepad
 > # install with all optional dependencies
 > pip install 'nodepad[all]'
 > ```
-
-Helps with writing and generating nice documentation for custom node
-groups in Blender’s Geometry Nodes.
-
-Early stages at the moment, currently used for generating and building
-docs for [Molecular
-Nodes](https://bradyajohnston.github.io/MolecularNodes)
 
 ## `Documenter` class
 
