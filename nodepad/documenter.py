@@ -2,8 +2,8 @@ import bpy
 import pathlib
 import sys
 
-from .interface import InterfaceGroup, InterfaceItem
-from . import markdown
+from .interface import InterfaceGroup, InterfaceSocket
+
 from typing import List
 
 TOP_FOLDER = pathlib.Path(__file__).resolve().parent.parent.parent
@@ -74,7 +74,7 @@ class Documenter:
         self.tree = tree
         self.level: int = 2
         self.title: Title = Title(tree.name)
-        self.items = [InterfaceItem(x) for x in tree.interface.items_tree]
+        self.items = [InterfaceSocket(x) for x in tree.interface.items_tree]
         self.inputs = InterfaceGroup([x for x in self.items if x.is_input])
         self.outputs = InterfaceGroup(
             [x for x in self.items if x.is_output], is_output=True

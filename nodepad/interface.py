@@ -1,11 +1,39 @@
 from typing import List, Union
+from bpy.types import (
+    NodeTreeInterfaceSocketBool,
+    NodeTreeInterfaceSocketColor,
+    NodeTreeInterfaceSocketFloat,
+    NodeTreeInterfaceSocketInt,
+    NodeTreeInterfaceSocketMatrix,
+    NodeTreeInterfaceSocketMenu,
+    NodeTreeInterfaceSocketRotation,
+    NodeTreeInterfaceSocketString,
+    NodeTreeInterfaceSocketVector,
+)
 
 import bpy
+from . import markdown
+from . import format
 
 
-class InterfaceItem:
-    def __init__(self, item: bpy.types.NodeTreeInterface) -> None:
-        self.item: bpy.types.NodeTreeInterface = item
+class InterfaceSocket:
+    def __init__(
+        self,
+        item: Union[
+            NodeTreeInterfaceSocketBool,
+            NodeTreeInterfaceSocketColor,
+            NodeTreeInterfaceSocketFloat,
+            NodeTreeInterfaceSocketInt,
+            NodeTreeInterfaceSocketMatrix,
+            NodeTreeInterfaceSocketMenu,
+            NodeTreeInterfaceSocketRotation,
+            NodeTreeInterfaceSocketString,
+            NodeTreeInterfaceSocketVector,
+        ],
+        round_length: int = 3,
+    ) -> None:
+        self.item = item
+        self.round_length: int = round_length
 
     @property
     def is_socket(self) -> bool:
@@ -50,38 +78,61 @@ class InterfaceItem:
             return 1
 
     @property
+    def _default(self) -> Union[str, float, int, list]:
+        if isinstance(self.item, NodeTreeInterfaceSocketVector):
+            return [round(x, self.round_length) for x in self.item.default_value]
+
+        if isinstance(self.item, NodeTreeInterfaceSocketColor):
+            return [round(x, self.round_length) for x in self.item.default_value]
+
+        if isinstance(self.item, NodeTreeInterfaceSocketFloat):
+            return round(self.item.default_value, self.round_length)
+
+        if isinstance(self.item, NodeTreeInterfaceSocketInt):
+            return str(self.item.default_value)
+
+        if isinstance(self.item, NodeTreeInterfaceSocketString):
+            return self.item.default_value
+
+        if isinstance(self.item, NodeTreeInterfaceSocketBool):
+            return self.item.default_value
+
+        if isinstance(self.item, NodeTreeInterfaceSocketRotation):
+            values = [round(x, self.round_length) for x in self.item.default_value]
+            return "Euler({}, {}, {}), 'XYZ')".format(*values)
+
+        if isinstance(self.item, NodeTreeInterfaceSocketMatrix):
+            return "Identity([4x4])"
+
+        if isinstance(self.item, NodeTreeInterfaceSocketMenu):
+            options = list([x.name for x in self.item.node.inputs])[1:]
+            return "{} [{}]".format(self.item.default_value, ", ".join(options))
+
+        else:
+            return "_None_"
+
+    @property
     def default(self) -> str:
-        round_length: int = 3
         try:
-            default_value: Union[str, float, int, list] = self.item.default_value
+            if hasattr(self.item, "devault_value"):
+                if self.item.default_input != "VALUE":
+                    return self.item.default_input.title()
 
-            if isinstance(self.item, bpy.types.NodeTreeInterfaceSocketVector):
-                if self.item.default_input in ["NORMAL", "POSITION"]:
-                    default_value = self.item.default_input.title()
-                else:
-                    default_value = [round(x, round_length) for x in default_value]
-            if isinstance(self.item, bpy.types.NodeTreeInterfaceSocketColor):
-                default_value = [round(x, round_length) for x in default_value]
-
-            if isinstance(self.item, bpy.types.NodeTreeInterfaceSocketFloat):
-                default_value = round(default_value, round_length)
-
-            if isinstance(self.item, bpy.types.NodeTreeInterfaceSocketInt):
-                if self.item.default_input in ["INDEX", "ID"]:
-                    default_value = self.item.default_input.title()
-                else:
-                    default_value = int(self.item.default_value)
-
-            if default_value == "":
-                default_value = '""'
-
-            if default_value in ["Index", "Position", "ID", "Normal"]:
-                default_value = "{}::Input".format(default_value)
-
-            return str(default_value)
-
+            return str(self._default)
         except AttributeError:
             return "_None_"
+
+    @property
+    def default_typed(self) -> str:
+        default = self.default
+
+        if default in ["Index", "Position", "ID", "Normal"]:
+            return format.add_type(default, "Input")
+
+        if default == "_None_":
+            return "_None_"
+
+        return format.add_type(default, self.type)
 
     @property
     def socket(self) -> str:
@@ -92,33 +143,36 @@ class InterfaceItem:
         return self.item.name
 
     @property
-    def min(self) -> str:
-        round_length: int = 4
-        try:
-            return str(round(self.item.min_value, round_length))
-        except AttributeError:
+    def min_value(self) -> str:
+        if (
+            isinstance(self.item, NodeTreeInterfaceSocketInt)
+            or isinstance(self.item, NodeTreeInterfaceSocketFloat)
+            or isinstance(self.item, NodeTreeInterfaceSocketVector)
+        ):
+            return str(round(self.item.min_value, self.round_length))
+        else:
             return "_None_"
 
     @property
-    def max(self) -> str:
-        round_length: int = 4
-        try:
-            return str(round(self.item.max_value, round_length))
-        except AttributeError:
+    def max_value(self) -> str:
+        if (
+            isinstance(self.item, NodeTreeInterfaceSocketInt)
+            or isinstance(self.item, NodeTreeInterfaceSocketFloat)
+            or isinstance(self.item, NodeTreeInterfaceSocketVector)
+        ):
+            return str(round(self.item.max_value, self.round_length))
+        else:
             return "_None_"
 
     @property
     def description(self) -> str:
-        try:
-            return self.item.description
-        except AttributeError:
-            return ""
+        return self.item.description
 
     def max_length(self) -> int:
         info_to_test: List[str] = [
             self.description,
-            self.min,
-            self.max,
+            self.min_value,
+            self.max_value,
             self.default,
             self.type,
         ]
@@ -126,8 +180,8 @@ class InterfaceItem:
 
 
 class InterfaceGroup:
-    def __init__(self, items: List[InterfaceItem], is_output: bool = False) -> None:
-        self.items: List[InterfaceItem] = items
+    def __init__(self, items: List[InterfaceSocket], is_output: bool = False) -> None:
+        self.items: List[InterfaceSocket] = items
         self._is_output: bool = is_output
         self.lengths: dict = {attr: self.get_length(attr) for attr in self.attributes}
 
@@ -152,23 +206,21 @@ class InterfaceGroup:
         return "|" + string + "\n"
 
     def get_length(self, name: str) -> int:
-        strings: List[str] = [getattr(x, name) for x in self.items]
+        strings: List[str] = [str(getattr(x, name)) for x in self.items]
         return max([len(x) for x in strings + [name]])
 
     def __len__(self) -> int:
         return len(self.items)
 
-    def get_padded_attr(self, item: InterfaceItem, attribute: str) -> str:
+    def get_padded_attr(self, item: InterfaceSocket, attribute: str) -> str:
         string = getattr(item, attribute)
-        if attribute in ["type", "name"]:
-            string = "{}::{}".format(string, item.type)
 
-        if "::" in string:
-            string = "`{}`".format(string)
+        if attribute in ["type", "name", "socket"]:
+            string = f"`{string}`"
 
         return string.ljust(self.lengths[attribute])
 
-    def item_to_line(self, item: InterfaceItem) -> str:
+    def item_to_line(self, item: InterfaceSocket) -> str:
         joined: str = "|".join(
             [self.get_padded_attr(item, attr) for attr in self.attributes]
         )

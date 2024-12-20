@@ -52,10 +52,10 @@
   |`Geometry::Geometry`              |_None_         |Input Geometry (may include other than curves)              |
   |`Factor::Float`                   |1.0            |Factor to scale overall displacement                        |
   |`Shape::Float`                    |0.5            |Shape of the influence along curves (0=constant, 0.5=linear)|
-  |`Object Space::Object`            |None           |Object used to define the displacement space                |
+  |`Object Space::Object`            |_None_         |Object used to define the displacement space                |
   |`Displace Vector::Vector`         |[0.0, 0.0, 0.0]|Vector for displacement                                     |
   |`Surface::Geometry`               |_None_         |Surface geometry used to sample the normal for displacement |
-  |`Surface::Object`                 |None           |Surface object used to sample the normal for displacement   |
+  |`Surface::Object`                 |_None_         |Surface object used to sample the normal for displacement   |
   |`Surface UV Map::Vector`          |[0.0, 0.0, 0.0]|Surface UV map used to sample the normal for displacement   |
   |`Surface Normal Displacement::Float`|0.0            |Amount of displacemement along the surface normal           |
   
@@ -175,7 +175,7 @@
   |`Flare Length::Float`   |0.0    |Length of the flare at the end of the braid                   |
   |`Flare Opening::Float`  |0.0    |Opening radius of the flare at the tip of the braid           |
   |`Hair Tie::Geometry`    |_None_ |Geometry used for the hair tie instance (priority)            |
-  |`Hair Tie::Object`      |None   |Object used for the hair tie instance                         |
+  |`Hair Tie::Object`      |_None_ |Object used for the hair tie instance                         |
   |`Hair Tie Scale::Float` |1.0    |Scale of the hair tie instance                                |
   
   : {tbl-colwidths="[10, 15, 80]"}
@@ -251,7 +251,7 @@
   |-----------------------------|:---------------:|------------------------------------------------------------------|
   |`Geometry::Geometry`         |_None_         |Input Geometry (may include other than curves)                    |
   |`Surface::Geometry`          |_None_         |Surface geometry to attach hair curves to                         |
-  |`Surface::Object`            |None           |Surface Object to attach to (needs to have matching transforms)   |
+  |`Surface::Object`            |_None_         |Surface Object to attach to (needs to have matching transforms)   |
   |`Surface UV Map::Vector`     |[0.0, 0.0, 0.0]|Surface UV map used for attachment                                |
   |`Surface Rest Position::Bool`|False          |Set the surface mesh into its rest position before attachment     |
   |`Sample Attachment UV::Bool` |True           |Sample the surface UV map at the attachment point                 |
@@ -312,10 +312,10 @@
   |`Geometry::Geometry`              |_None_         |Input Geometry (may include other than curves)              |
   |`Factor::Float`                   |1.0            |Factor to scale overall displacement                        |
   |`Shape::Float`                    |0.5            |Shape of the influence along curves (0=constant, 0.5=linear)|
-  |`Object Space::Object`            |None           |Object used to define the displacement space                |
+  |`Object Space::Object`            |_None_         |Object used to define the displacement space                |
   |`Displace Vector::Vector`         |[0.0, 0.0, 0.0]|Vector for displacement                                     |
   |`Surface::Geometry`               |_None_         |Surface geometry used to sample the normal for displacement |
-  |`Surface::Object`                 |None           |Surface object used to sample the normal for displacement   |
+  |`Surface::Object`                 |_None_         |Surface object used to sample the normal for displacement   |
   |`Surface UV Map::Vector`          |[0.0, 0.0, 0.0]|Surface UV map used to sample the normal for displacement   |
   |`Surface Normal Displacement::Float`|0.0            |Amount of displacemement along the surface normal           |
   
@@ -430,7 +430,7 @@
   |`Flare Length::Float`   |0.0    |Length of the flare at the end of the braid                   |
   |`Flare Opening::Float`  |0.0    |Opening radius of the flare at the tip of the braid           |
   |`Hair Tie::Geometry`    |_None_ |Geometry used for the hair tie instance (priority)            |
-  |`Hair Tie::Object`      |None   |Object used for the hair tie instance                         |
+  |`Hair Tie::Object`      |_None_ |Object used for the hair tie instance                         |
   |`Hair Tie Scale::Float` |1.0    |Scale of the hair tie instance                                |
   
   : {tbl-colwidths="[10, 15, 80]"}
@@ -501,7 +501,7 @@
   |-----------------------------|:---------------:|------------------------------------------------------------------|
   |`Geometry::Geometry`         |_None_         |Input Geometry (may include other than curves)                    |
   |`Surface::Geometry`          |_None_         |Surface geometry to attach hair curves to                         |
-  |`Surface::Object`            |None           |Surface Object to attach to (needs to have matching transforms)   |
+  |`Surface::Object`            |_None_         |Surface Object to attach to (needs to have matching transforms)   |
   |`Surface UV Map::Vector`     |[0.0, 0.0, 0.0]|Surface UV map used for attachment                                |
   |`Surface Rest Position::Bool`|False          |Set the surface mesh into its rest position before attachment     |
   |`Sample Attachment UV::Bool` |True           |Sample the surface UV map at the attachment point                 |
