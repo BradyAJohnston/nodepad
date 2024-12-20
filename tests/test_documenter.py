@@ -5,6 +5,8 @@ from pathlib import Path
 import pytest
 from json import load
 
+import nodepad.format
+
 
 nodes = [
     "Blend Hair Curves",
@@ -37,3 +39,7 @@ def test_documented_with_json(snapshot):
         doc.lookup_info(extra_json)
         assert without_info != doc.as_markdown()
         assert snapshot == doc.as_markdown()
+
+
+def test_format():
+    assert nodepad.format.add_type("test", "Test") == "test::Test"
