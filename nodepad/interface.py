@@ -250,9 +250,12 @@ class InterfaceGroup:
         return "\n".join([self.item_to_line(x) for x in self.items])
 
     def tail(self) -> str:
-        col_widths: list[int] = [10, 15, 80]
         if self._is_output:
-            col_widths = [90, 10]
+            col_ratios = {"description": 90, "socket": 10}
+        else:
+            col_ratios = {"socket": 10, "default": 15, "description": 80}
+
+        col_widths = [col_ratios[col] for col in self.columns]
 
         widths_str = (
             "{"

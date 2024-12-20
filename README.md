@@ -50,12 +50,16 @@ inputs and outputs, as well as title and description.
 import nodepad
 import bpy
 nodepad.utils.append_default_asset_node('Blend Hair Curves')
-doc = nodepad.Documenter(bpy.data.node_groups['Blend Hair Curves'])
+tree = bpy.data.node_groups['Blend Hair Curves']
+tree.description = "This node group blends hair curves together"
+doc = nodepad.Documenter(tree)
 print(doc.as_markdown())
 ```
 
 
     ## Blend Hair Curves
+
+    This node group blends hair curves together
 
 
     ### Outputs
