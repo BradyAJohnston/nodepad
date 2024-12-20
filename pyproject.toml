@@ -15,7 +15,7 @@ Documentation = "https://bradyajohnston.github.io/nodepad"
 
 [project.optional-dependencies]
 bpy =  ["bpy>=4.2"]
-docs = ["quartodoc", "tomlkit"]
+docs = ["quartodoc", "tomlkit", "jupyter"]
 test = ["pytest", "pytest-cov", "syrupy", "scipy"]
 dev = ["pytest", "pytest-cov", "syrupy", "scipy", "fake-bpy-module"]
 

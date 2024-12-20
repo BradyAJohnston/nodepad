@@ -17,18 +17,12 @@ nodes = [
     "Attach Hair Curves to Surface",
 ]
 
-DATADIR = Path(bpy.utils.script_paths()[0]).parent / "datafiles/assets/geometry_nodes/"
+DATADIR = nodepad.utils.DATADIR_GN
 
 
 def test_documenter(snapshot):
     for node_name in nodes:
-        bpy.ops.wm.append(
-            "EXEC_DEFAULT",
-            directory=str(DATADIR / "procedural_hair_node_assets.blend/NodeTree/"),
-            filename=node_name,
-            use_recursive=True,
-        )
-
+        nodepad.utils.append_default_asset_node(node_name)
         assert snapshot == Documenter(bpy.data.node_groups[node_name]).as_markdown()
 
 
@@ -37,13 +31,7 @@ def test_documented_with_json(snapshot):
         extra_json = load(f)
 
     for node_name in nodes:
-        bpy.ops.wm.append(
-            "EXEC_DEFAULT",
-            directory=str(DATADIR / "procedural_hair_node_assets.blend/NodeTree/"),
-            filename=node_name,
-            use_recursive=True,
-        )
-
+        nodepad.utils.append_default_asset_node(node_name)
         doc = Documenter(bpy.data.node_groups[node_name])
         without_info = doc.as_markdown()
         doc.lookup_info(extra_json)

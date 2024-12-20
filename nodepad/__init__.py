@@ -7,6 +7,7 @@ from bpy.props import IntProperty
 CLASSES = panel.CLASSES + pref.CLASSES
 
 from .documenter import Documenter
+from .utils import DATADIR_GN
 
 __all__ = [
     "Documenter",
