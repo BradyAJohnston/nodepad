@@ -60,20 +60,20 @@ print(doc.as_markdown())
 
     ### Outputs
 
-    |Description|Socket            |
-    |-----------|------------------:|
-    |           |`Geometry::Geometry`|
+    |Description|Socket               |
+    |-----------|--------------------:|
+    |           |`Geometry::Geometry` |
 
     : {tbl-colwidths="[90, 10]"}
 
     ### Inputs
 
-    |Socket               |Default|Description                                    |
-    |---------------------|:-------:|-----------------------------------------------|
-    |`Geometry::Geometry` |_None_ |Input Geometry (may include other than curves) |
-    |`Factor::Float`      |1.0    |Factor to blend overall effect                 |
-    |`Blend Radius::Float`|0.05   |Radius to select neighbors for blending        |
-    |`Blend Neighbors::Int`|10     |Amount of neighbors used for blending          |
+    |Socket                 |Default|Description                                    |
+    |-----------------------|:-----:|-----------------------------------------------|
+    |`Geometry::Geometry`   |_None_ |Input Geometry (may include other than curves) |
+    |`Factor::Float`        |1.0    |Factor to blend overall effect                 |
+    |`Blend Radius::Float`  |0.05   |Radius to select neighbors for blending        |
+    |`Blend Neighbors::Int` |10     |Amount of neighbors used for blending          |
     |`Preserve Length::Bool`|False  |Preserve each curve's length during deformation|
 
     : {tbl-colwidths="[10, 15, 80]"}

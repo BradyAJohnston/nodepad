@@ -180,34 +180,48 @@ class InterfaceSocket:
 
 
 class InterfaceGroup:
-    def __init__(self, items: List[InterfaceSocket], is_output: bool = False) -> None:
-        self.items: List[InterfaceSocket] = items
+    def __init__(self, items: list[InterfaceSocket], is_output: bool = False) -> None:
         self._is_output: bool = is_output
-        self.lengths: dict = {attr: self.get_length(attr) for attr in self.attributes}
+        self.items: List[InterfaceSocket] = items
+        self.widths: dict[str, int] = {"socket": 0, "default": 0, "description": 0}
+        self._update_col_widths()
 
     @property
-    def attributes(self) -> List[str]:
+    def columns(self) -> List[str]:
         if self._is_output:
             return ["description", "socket"]
         else:
             return ["socket", "default", "description"]
 
+    def _update_col_widths(self) -> None:
+        for col in self.columns:
+            self.widths[col] = max(self.widths[col], self.column_width(col))
+
     def sep(self) -> str:
         string = ""
-        for attribute in self.attributes:
-            lines = "-" * self.lengths[attribute]
-            if attribute == "default":
-                string += ":{}:|".format(lines)
-            elif attribute == "socket" and self._is_output:
-                string += "{}:|".format(lines)
+        for col in self.columns:
+            dashes = "-" * self.widths[col]
+            if col == "default":
+                dashes = dashes[2:]  # trim off an extra dash
+                string += ":{}:|".format(dashes)
+            elif col == "socket" and self._is_output:
+                string += "{}:|".format(dashes[1:])
             else:
-                string += "{}|".format(lines)
+                string += "{}|".format(dashes)
 
         return "|" + string + "\n"
 
-    def get_length(self, name: str) -> int:
-        strings: List[str] = [str(getattr(x, name)) for x in self.items]
-        return max([len(x) for x in strings + [name]])
+    def column_width(self, name: str) -> int:
+        if len(self.items) == 0:
+            return 0
+        width: int = max([len(str(getattr(x, name))) for x in self.items])
+        # if name == "default":
+        #     width += 2
+        if name == "socket":
+            width += 2
+            if self._is_output:
+                width += 1
+        return max(width, len(name))
 
     def __len__(self) -> int:
         return len(self.items)
@@ -218,17 +232,17 @@ class InterfaceGroup:
         if attribute in ["type", "name", "socket"]:
             string = f"`{string}`"
 
-        return string.ljust(self.lengths[attribute])
+        return string.ljust(self.widths[attribute])
 
     def item_to_line(self, item: InterfaceSocket) -> str:
         joined: str = "|".join(
-            [self.get_padded_attr(item, attr) for attr in self.attributes]
+            [self.get_padded_attr(item, attr) for attr in self.columns]
         )
         return "|" + joined + "|"
 
     def top_line(self) -> str:
         joined: str = "|".join(
-            [attr.title().ljust(self.lengths[attr]) for attr in self.attributes]
+            [attr.title().ljust(self.widths[attr]) for attr in self.columns]
         )
         return "|" + joined + "|\n"
 
