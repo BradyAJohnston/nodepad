@@ -231,6 +231,11 @@ def main(generate_json, generate_python, output_dir, blend_file, prefix, list_no
                 warning_capture.report_warnings()
                 return
 
+            click.echo(
+                click.style(
+                    "🚀 Starting documentation generation...", fg="blue", bold=True
+                )
+            )
             click.echo(f"   Source: {blend_file}")
             click.echo(f"   Output: {output_dir}")
             click.echo(f"   Prefix: {prefix}")
@@ -241,6 +246,7 @@ def main(generate_json, generate_python, output_dir, blend_file, prefix, list_no
                     output_dir
                     / f"{prefix.strip().lower().replace(' ', '_')}_nodes_data.json"
                 )
+                click.echo(click.style("📄 Generating JSON data...", fg="blue"))
                 warning_capture.capture_operation_output(
                     save_style_data_to_json, json_path, blend_file, prefix
                 )
@@ -251,6 +257,8 @@ def main(generate_json, generate_python, output_dir, blend_file, prefix, list_no
 
             if generate_python:
                 py_path = output_dir / "styles.py"
+                click.echo()
+                click.echo(click.style("🐍 Generating Python classes...", fg="blue"))
                 warning_capture.capture_operation_output(
                     generate_style_classes_file, py_path, blend_file, prefix
                 )
@@ -260,6 +268,7 @@ def main(generate_json, generate_python, output_dir, blend_file, prefix, list_no
                 )
 
             click.echo()
+            click.echo(click.style("🎉 Generation complete!", fg="green", bold=True))
 
             # Report warnings at the end after success message
             warning_capture.report_warnings()
