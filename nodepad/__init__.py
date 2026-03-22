@@ -1,29 +1,25 @@
 import bpy
 
-from . import panel
-from . import pref
-from bpy.props import IntProperty
-
-CLASSES = panel.CLASSES + pref.CLASSES
-
+from . import panel, pref, utils
 from .documenter import Documenter
-from .utils import DATADIR_GN
 from .style_generator import (
+    EnumOption,
+    NodeInput,
+    StyleNodeInfo,
     extract_style_nodes,
     generate_style_classes_file,
     save_style_data_to_json,
-    StyleNodeInfo,
-    NodeInput,
-    EnumOption,
 )
 
+CLASSES = panel.CLASSES + pref.CLASSES
 __all__ = [
+    "utils",
     "Documenter",
     "extract_style_nodes",
     "generate_style_classes_file",
     "save_style_data_to_json",
     "StyleNodeInfo",
-    "NodeInput", 
+    "NodeInput",
     "EnumOption",
 ]
 

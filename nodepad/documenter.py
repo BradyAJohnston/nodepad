@@ -4,7 +4,6 @@ import sys
 
 from .interface import InterfaceGroup, InterfaceSocket
 
-from typing import List
 
 TOP_FOLDER = pathlib.Path(__file__).resolve().parent.parent.parent
 sys.path.insert(0, str(TOP_FOLDER))

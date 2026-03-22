@@ -1,9 +1,8 @@
-import bpy
 from pathlib import Path
 
-DATADIR_GN = (
-    Path(bpy.utils.script_paths()[0]).parent / "datafiles/assets/geometry_nodes/"
-)
+import bpy
+
+DATADIR_GN = Path(bpy.utils.script_paths()[0]).parent / "datafiles/assets/nodes/"
 
 
 def append_default_asset_node(

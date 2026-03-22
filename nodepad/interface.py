@@ -11,8 +11,6 @@ from bpy.types import (
     NodeTreeInterfaceSocketVector,
 )
 
-import bpy
-from . import markdown
 from . import format
 
 

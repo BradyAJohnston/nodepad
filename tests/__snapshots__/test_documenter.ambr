@@ -47,17 +47,19 @@
   
   ### Inputs
   
-  |Socket                              |Default        |Description                                                 |
-  |------------------------------------|:-------------:|------------------------------------------------------------|
-  |`Geometry::Geometry`                |_None_         |Input Geometry (may include other than curves)              |
-  |`Factor::Float`                     |1.0            |Factor to scale overall displacement                        |
-  |`Shape::Float`                      |0.5            |Shape of the influence along curves (0=constant, 0.5=linear)|
-  |`Object Space::Object`              |_None_         |Object used to define the displacement space                |
-  |`Displace Vector::Vector`           |[0.0, 0.0, 0.0]|Vector for displacement                                     |
-  |`Surface::Geometry`                 |_None_         |Surface geometry used to sample the normal for displacement |
-  |`Surface::Object`                   |_None_         |Surface object used to sample the normal for displacement   |
-  |`Surface UV Map::Vector`            |[0.0, 0.0, 0.0]|Surface UV map used to sample the normal for displacement   |
-  |`Surface Normal Displacement::Float`|0.0            |Amount of displacemement along the surface normal           |
+  |Socket                          |Default        |Description                                                 |
+  |--------------------------------|:-------------:|------------------------------------------------------------|
+  |`Geometry::Geometry`            |_None_         |Input Geometry (may include other than curves)              |
+  |`Factor::Float`                 |1.0            |Factor to scale overall displacement                        |
+  |`Shape::Float`                  |0.5            |Shape of the influence along curves (0=constant, 0.5=linear)|
+  |`Object Space::Object`          |_None_         |Object used to define the displacement space                |
+  |`Displace Vector::Vector`       |[0.0, 0.0, 0.0]|Vector for displacement                                     |
+  |`Surface Normal::Bool`          |False          |                                                            |
+  |`Surface Input Type::Menu`      |_None_         |Select the input type for the surface geometry.             |
+  |`Surface::Geometry`             |_None_         |Surface geometry used to sample the normal for displacement |
+  |`Surface::Object`               |_None_         |Surface object used to sample the normal for displacement   |
+  |`Surface UV Map::Vector`        |[0.0, 0.0, 0.0]|Surface UV map used to sample the normal for displacement   |
+  |`Surface Normal Distance::Float`|0.0            |Amount of displacemement along the surface normal           |
   
   : {tbl-colwidths="[10, 15, 80]"}
   
@@ -146,37 +148,39 @@
   |Description                                                  |Socket                   |
   |-------------------------------------------------------------|------------------------:|
   |                                                             |`Geometry::Geometry`     |
-  |Guide index map that was used for the operation              |`Guide Index::Int`       |
   |Parameter from 0 to 1 along the flare                        |`Flare Parameter::Float` |
   |Index of the strand within a braid that each curve belongs to|`Strand Index::Int`      |
+  |Guide index map that was used for the operation              |`Guide Index::Int`       |
   
   : {tbl-colwidths="[90, 10]"}
   
   ### Inputs
   
-  |Socket                    |Default|Description                                                   |
-  |--------------------------|:-----:|--------------------------------------------------------------|
-  |`Geometry::Geometry`      |_None_ |                                                              |
-  |`Guide Index::Int`        |-987654|Guide index map to be used. This input has priority           |
-  |`Guide Distance::Float`   |0.1    |Minimum distance between two guides for new guide map         |
-  |`Guide Mask::Float`       |1.0    |Mask for which curves are eligible to be selected as guides   |
-  |`Existing Guide Map::Bool`|True   |Use the existing guide map attribute if available             |
-  |`Factor::Float`           |1.0    |Factor to blend overall effect                                |
-  |`Subdivision::Int`        |1      |Subdivision level applied before deformation                  |
-  |`Braid Start::Float`      |0.1    |Percentage along each curve to blend deformation from the root|
-  |`Radius::Float`           |0.1    |Overall radius of the braids                                  |
-  |`Shape::Float`            |0.5    |Shape of the braid radius along each curve                    |
-  |`Factor Min::Float`       |0.0    |Factor of the minimum radius of the braids                    |
-  |`Factor Max::Float`       |1.0    |Factor of the maximum radius of the braids                    |
-  |`Frequency::Float`        |1.0    |Frequency factor of the braids                                |
-  |`Thickness::Float`        |1.0    |Thickness of each strand of hair                              |
-  |`Thickness Shape::Float`  |0.5    |Shape adjustment of the strand thickness for the braids       |
-  |`Shape Asymmetry::Float`  |0.0    |Asymmetry of the shape adjustment of the strand thickness     |
-  |`Flare Length::Float`     |0.0    |Length of the flare at the end of the braid                   |
-  |`Flare Opening::Float`    |0.0    |Opening radius of the flare at the tip of the braid           |
-  |`Hair Tie::Geometry`      |_None_ |Geometry used for the hair tie instance (priority)            |
-  |`Hair Tie::Object`        |_None_ |Object used for the hair tie instance                         |
-  |`Hair Tie Scale::Float`   |1.0    |Scale of the hair tie instance                                |
+  |Socket                     |Default|Description                                                   |
+  |---------------------------|:-----:|--------------------------------------------------------------|
+  |`Geometry::Geometry`       |_None_ |                                                              |
+  |`Factor::Float`            |1.0    |Factor to blend overall effect                                |
+  |`Subdivision::Int`         |1      |Subdivision level applied before deformation                  |
+  |`Braid Start::Float`       |0.1    |Percentage along each curve to blend deformation from the root|
+  |`Radius::Float`            |0.1    |Overall radius of the braids                                  |
+  |`Shape::Float`             |0.5    |Shape of the braid radius along each curve                    |
+  |`Frequency::Float`         |1.0    |Frequency factor of the braids                                |
+  |`Factor Min::Float`        |0.0    |Factor of the minimum radius of the braids                    |
+  |`Factor Max::Float`        |1.0    |Factor of the maximum radius of the braids                    |
+  |`Thickness::Float`         |1.0    |Thickness of each strand of hair                              |
+  |`Thickness Shape::Float`   |0.5    |Shape adjustment of the strand thickness for the braids       |
+  |`Shape Asymmetry::Float`   |0.0    |Asymmetry of the shape adjustment of the strand thickness     |
+  |`Flare Length::Float`      |0.0    |Length of the flare at the end of the braid                   |
+  |`Flare Opening::Float`     |0.0    |Opening radius of the flare at the tip of the braid           |
+  |`Hair Tie::Bool`           |False  |                                                              |
+  |`Hair Tie Input Type::Menu`|_None_ |Select the input type for the hair tie geometry.              |
+  |`Hair Tie::Geometry`       |_None_ |Geometry used for the hair tie instance (priority)            |
+  |`Hair Tie::Object`         |_None_ |Object used for the hair tie instance                         |
+  |`Hair Tie Scale::Float`    |1.0    |Scale of the hair tie instance                                |
+  |`Guide Index::Int`         |-987654|Guide index map to be used. This input has priority           |
+  |`Guide Distance::Float`    |0.1    |Minimum distance between two guides for new guide map         |
+  |`Guide Mask::Float`        |1.0    |Mask for which curves are eligible to be selected as guides   |
+  |`Existing Guide Map::Bool` |True   |Use the existing guide map attribute if available             |
   
   : {tbl-colwidths="[10, 15, 80]"}
   
@@ -250,6 +254,7 @@
   |Socket                         |Default        |Description                                                       |
   |-------------------------------|:-------------:|------------------------------------------------------------------|
   |`Geometry::Geometry`           |_None_         |Input Geometry (may include other than curves)                    |
+  |`Surface Input Type::Menu`     |_None_         |Select the input type for the surface geometry.                   |
   |`Surface::Geometry`            |_None_         |Surface geometry to attach hair curves to                         |
   |`Surface::Object`              |_None_         |Surface Object to attach to (needs to have matching transforms)   |
   |`Surface UV Map::Vector`       |[0.0, 0.0, 0.0]|Surface UV map used for attachment                                |
@@ -307,17 +312,19 @@
   
   ### Inputs
   
-  |Socket                              |Default        |Description                                                 |
-  |------------------------------------|:-------------:|------------------------------------------------------------|
-  |`Geometry::Geometry`                |_None_         |Input Geometry (may include other than curves)              |
-  |`Factor::Float`                     |1.0            |Factor to scale overall displacement                        |
-  |`Shape::Float`                      |0.5            |Shape of the influence along curves (0=constant, 0.5=linear)|
-  |`Object Space::Object`              |_None_         |Object used to define the displacement space                |
-  |`Displace Vector::Vector`           |[0.0, 0.0, 0.0]|Vector for displacement                                     |
-  |`Surface::Geometry`                 |_None_         |Surface geometry used to sample the normal for displacement |
-  |`Surface::Object`                   |_None_         |Surface object used to sample the normal for displacement   |
-  |`Surface UV Map::Vector`            |[0.0, 0.0, 0.0]|Surface UV map used to sample the normal for displacement   |
-  |`Surface Normal Displacement::Float`|0.0            |Amount of displacemement along the surface normal           |
+  |Socket                          |Default        |Description                                                 |
+  |--------------------------------|:-------------:|------------------------------------------------------------|
+  |`Geometry::Geometry`            |_None_         |Input Geometry (may include other than curves)              |
+  |`Factor::Float`                 |1.0            |Factor to scale overall displacement                        |
+  |`Shape::Float`                  |0.5            |Shape of the influence along curves (0=constant, 0.5=linear)|
+  |`Object Space::Object`          |_None_         |Object used to define the displacement space                |
+  |`Displace Vector::Vector`       |[0.0, 0.0, 0.0]|Vector for displacement                                     |
+  |`Surface Normal::Bool`          |False          |                                                            |
+  |`Surface Input Type::Menu`      |_None_         |Select the input type for the surface geometry.             |
+  |`Surface::Geometry`             |_None_         |Surface geometry used to sample the normal for displacement |
+  |`Surface::Object`               |_None_         |Surface object used to sample the normal for displacement   |
+  |`Surface UV Map::Vector`        |[0.0, 0.0, 0.0]|Surface UV map used to sample the normal for displacement   |
+  |`Surface Normal Distance::Float`|0.0            |Amount of displacemement along the surface normal           |
   
   : {tbl-colwidths="[10, 15, 80]"}
   
@@ -401,37 +408,39 @@
   |Description                                                  |Socket                   |
   |-------------------------------------------------------------|------------------------:|
   |                                                             |`Geometry::Geometry`     |
-  |Guide index map that was used for the operation              |`Guide Index::Int`       |
   |Parameter from 0 to 1 along the flare                        |`Flare Parameter::Float` |
   |Index of the strand within a braid that each curve belongs to|`Strand Index::Int`      |
+  |Guide index map that was used for the operation              |`Guide Index::Int`       |
   
   : {tbl-colwidths="[90, 10]"}
   
   ### Inputs
   
-  |Socket                    |Default|Description                                                   |
-  |--------------------------|:-----:|--------------------------------------------------------------|
-  |`Geometry::Geometry`      |_None_ |                                                              |
-  |`Guide Index::Int`        |-987654|Guide index map to be used. This input has priority           |
-  |`Guide Distance::Float`   |0.1    |Minimum distance between two guides for new guide map         |
-  |`Guide Mask::Float`       |1.0    |Mask for which curves are eligible to be selected as guides   |
-  |`Existing Guide Map::Bool`|True   |Use the existing guide map attribute if available             |
-  |`Factor::Float`           |1.0    |Factor to blend overall effect                                |
-  |`Subdivision::Int`        |1      |Subdivision level applied before deformation                  |
-  |`Braid Start::Float`      |0.1    |Percentage along each curve to blend deformation from the root|
-  |`Radius::Float`           |0.1    |Overall radius of the braids                                  |
-  |`Shape::Float`            |0.5    |Shape of the braid radius along each curve                    |
-  |`Factor Min::Float`       |0.0    |Factor of the minimum radius of the braids                    |
-  |`Factor Max::Float`       |1.0    |Factor of the maximum radius of the braids                    |
-  |`Frequency::Float`        |1.0    |Frequency factor of the braids                                |
-  |`Thickness::Float`        |1.0    |Thickness of each strand of hair                              |
-  |`Thickness Shape::Float`  |0.5    |Shape adjustment of the strand thickness for the braids       |
-  |`Shape Asymmetry::Float`  |0.0    |Asymmetry of the shape adjustment of the strand thickness     |
-  |`Flare Length::Float`     |0.0    |Length of the flare at the end of the braid                   |
-  |`Flare Opening::Float`    |0.0    |Opening radius of the flare at the tip of the braid           |
-  |`Hair Tie::Geometry`      |_None_ |Geometry used for the hair tie instance (priority)            |
-  |`Hair Tie::Object`        |_None_ |Object used for the hair tie instance                         |
-  |`Hair Tie Scale::Float`   |1.0    |Scale of the hair tie instance                                |
+  |Socket                     |Default|Description                                                   |
+  |---------------------------|:-----:|--------------------------------------------------------------|
+  |`Geometry::Geometry`       |_None_ |                                                              |
+  |`Factor::Float`            |1.0    |Factor to blend overall effect                                |
+  |`Subdivision::Int`         |1      |Subdivision level applied before deformation                  |
+  |`Braid Start::Float`       |0.1    |Percentage along each curve to blend deformation from the root|
+  |`Radius::Float`            |0.1    |Overall radius of the braids                                  |
+  |`Shape::Float`             |0.5    |Shape of the braid radius along each curve                    |
+  |`Frequency::Float`         |1.0    |Frequency factor of the braids                                |
+  |`Factor Min::Float`        |0.0    |Factor of the minimum radius of the braids                    |
+  |`Factor Max::Float`        |1.0    |Factor of the maximum radius of the braids                    |
+  |`Thickness::Float`         |1.0    |Thickness of each strand of hair                              |
+  |`Thickness Shape::Float`   |0.5    |Shape adjustment of the strand thickness for the braids       |
+  |`Shape Asymmetry::Float`   |0.0    |Asymmetry of the shape adjustment of the strand thickness     |
+  |`Flare Length::Float`      |0.0    |Length of the flare at the end of the braid                   |
+  |`Flare Opening::Float`     |0.0    |Opening radius of the flare at the tip of the braid           |
+  |`Hair Tie::Bool`           |False  |                                                              |
+  |`Hair Tie Input Type::Menu`|_None_ |Select the input type for the hair tie geometry.              |
+  |`Hair Tie::Geometry`       |_None_ |Geometry used for the hair tie instance (priority)            |
+  |`Hair Tie::Object`         |_None_ |Object used for the hair tie instance                         |
+  |`Hair Tie Scale::Float`    |1.0    |Scale of the hair tie instance                                |
+  |`Guide Index::Int`         |-987654|Guide index map to be used. This input has priority           |
+  |`Guide Distance::Float`    |0.1    |Minimum distance between two guides for new guide map         |
+  |`Guide Mask::Float`        |1.0    |Mask for which curves are eligible to be selected as guides   |
+  |`Existing Guide Map::Bool` |True   |Use the existing guide map attribute if available             |
   
   : {tbl-colwidths="[10, 15, 80]"}
   
@@ -500,6 +509,7 @@
   |Socket                         |Default        |Description                                                       |
   |-------------------------------|:-------------:|------------------------------------------------------------------|
   |`Geometry::Geometry`           |_None_         |Input Geometry (may include other than curves)                    |
+  |`Surface Input Type::Menu`     |_None_         |Select the input type for the surface geometry.                   |
   |`Surface::Geometry`            |_None_         |Surface geometry to attach hair curves to                         |
   |`Surface::Object`              |_None_         |Surface Object to attach to (needs to have matching transforms)   |
   |`Surface UV Map::Vector`       |[0.0, 0.0, 0.0]|Surface UV map used for attachment                                |

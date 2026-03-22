@@ -1,7 +1,8 @@
-import bpy
-from nodepad import Documenter
 from pathlib import Path
 
+import bpy
+
+from nodepad import Documenter
 
 nodes = [
     "Blend Hair Curves",
@@ -14,7 +15,7 @@ nodes = [
     "Attach Hair Curves to Surface",
 ]
 
-DATADIR = Path(bpy.utils.script_paths()[0]).parent / "datafiles/assets/geometry_nodes/"
+DATADIR = Path(bpy.utils.script_paths()[0]).parent / "datafiles/assets/nodes/"
 
 
 with open("example.qmd", "w") as f:

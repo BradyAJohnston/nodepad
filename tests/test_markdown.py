@@ -1,4 +1,3 @@
-import pytest
 from nodepad.markdown import Video
 
 
@@ -17,7 +16,7 @@ def test_video_initialization_with_caption():
 def test_video_as_markdown_empty_url():
     video = Video("")
     assert video.as_markdown() == "![]()"
-    
+
     video = Video(None)
     assert video.as_markdown() == "![]()"
 

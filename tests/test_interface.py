@@ -1,13 +1,21 @@
-import pytest
-from unittest.mock import Mock, MagicMock
+from unittest.mock import Mock
 from nodepad.interface import InterfaceSocket, InterfaceGroup
 
 
 class MockSocketItem:
     """Mock socket item for testing"""
-    def __init__(self, item_type="SOCKET", socket_type="NodeSocketFloat", in_out="INPUT", 
-                 name="TestSocket", description="Test description", default_value=1.0,
-                 min_value=0.0, max_value=10.0):
+
+    def __init__(
+        self,
+        item_type="SOCKET",
+        socket_type="NodeSocketFloat",
+        in_out="INPUT",
+        name="TestSocket",
+        description="Test description",
+        default_value=1.0,
+        min_value=0.0,
+        max_value=10.0,
+    ):
         self.item_type = item_type
         self.socket_type = socket_type
         self.in_out = in_out
@@ -21,12 +29,16 @@ class MockSocketItem:
 
 class MockVectorSocketItem(MockSocketItem):
     def __init__(self, **kwargs):
-        super().__init__(socket_type="NodeSocketVector", default_value=(1.0, 2.0, 3.0), **kwargs)
+        super().__init__(
+            socket_type="NodeSocketVector", default_value=(1.0, 2.0, 3.0), **kwargs
+        )
 
 
 class MockColorSocketItem(MockSocketItem):
     def __init__(self, **kwargs):
-        super().__init__(socket_type="NodeSocketColor", default_value=(1.0, 0.0, 0.0, 1.0), **kwargs)
+        super().__init__(
+            socket_type="NodeSocketColor", default_value=(1.0, 0.0, 0.0, 1.0), **kwargs
+        )
 
 
 class MockIntSocketItem(MockSocketItem):
@@ -36,7 +48,9 @@ class MockIntSocketItem(MockSocketItem):
 
 class MockStringSocketItem(MockSocketItem):
     def __init__(self, **kwargs):
-        super().__init__(socket_type="NodeSocketString", default_value="test string", **kwargs)
+        super().__init__(
+            socket_type="NodeSocketString", default_value="test string", **kwargs
+        )
 
 
 class MockBoolSocketItem(MockSocketItem):
@@ -46,7 +60,9 @@ class MockBoolSocketItem(MockSocketItem):
 
 class MockRotationSocketItem(MockSocketItem):
     def __init__(self, **kwargs):
-        super().__init__(socket_type="NodeSocketRotation", default_value=(0.1, 0.2, 0.3), **kwargs)
+        super().__init__(
+            socket_type="NodeSocketRotation", default_value=(0.1, 0.2, 0.3), **kwargs
+        )
 
 
 class MockMatrixSocketItem(MockSocketItem):
@@ -57,11 +73,13 @@ class MockMatrixSocketItem(MockSocketItem):
 
 class MockMenuSocketItem(MockSocketItem):
     def __init__(self, **kwargs):
-        super().__init__(socket_type="NodeSocketMenu", default_value="Option1", **kwargs)
+        super().__init__(
+            socket_type="NodeSocketMenu", default_value="Option1", **kwargs
+        )
         mock_node = Mock()
         mock_input1 = Mock()
         mock_input1.name = "input0"
-        mock_input2 = Mock() 
+        mock_input2 = Mock()
         mock_input2.name = "Option1"
         mock_input3 = Mock()
         mock_input3.name = "Option2"
@@ -79,11 +97,11 @@ class MockPanelItem:
 def test_interface_socket_basic_properties():
     item = MockSocketItem()
     socket = InterfaceSocket(item)
-    
-    assert socket.is_socket == True
-    assert socket.is_panel == False
-    assert socket.is_input == True
-    assert socket.is_output == False
+
+    assert socket.is_socket
+    assert not socket.is_panel
+    assert socket.is_input
+    assert not socket.is_output
     assert socket.type == "Float"
     assert socket.name == "TestSocket"
     assert socket.description == "Test description"
@@ -92,62 +110,62 @@ def test_interface_socket_basic_properties():
 def test_interface_socket_output():
     item = MockSocketItem(in_out="OUTPUT")
     socket = InterfaceSocket(item)
-    
-    assert socket.is_input == False
-    assert socket.is_output == True
+
+    assert not socket.is_input
+    assert socket.is_output
 
 
 def test_interface_socket_panel():
     item = MockPanelItem()
     socket = InterfaceSocket(item)
-    
-    assert socket.is_socket == False
-    assert socket.is_panel == True
-    assert socket.is_input == False
-    assert socket.is_output == False
+
+    assert not socket.is_socket
+    assert socket.is_panel
+    assert not socket.is_input
+    assert not socket.is_output
     assert socket.type == "PANEL"
 
 
 def test_interface_socket_vector_properties():
     item = MockVectorSocketItem()
     socket = InterfaceSocket(item)
-    
+
     assert socket.type == "Vector"
-    assert socket.is_vector == True
+    assert socket.is_vector
     assert len(socket) == 3
 
 
 def test_interface_socket_color_properties():
     item = MockColorSocketItem()
     socket = InterfaceSocket(item)
-    
+
     assert socket.type == "Color"
-    assert socket.is_vector == True
+    assert socket.is_vector
     assert len(socket) == 4
 
 
 def test_interface_socket_matrix_properties():
     item = MockMatrixSocketItem()
     socket = InterfaceSocket(item)
-    
+
     assert socket.type == "Matrix"
-    assert socket.is_vector == True
+    assert socket.is_vector
     assert len(socket) == 16
 
 
 def test_interface_socket_rotation_properties():
     item = MockRotationSocketItem()
     socket = InterfaceSocket(item)
-    
+
     assert socket.type == "Rotation"
-    assert socket.is_vector == True
+    assert socket.is_vector
     assert len(socket) == 3
 
 
 def test_interface_socket_panel_length():
     item = MockPanelItem()
     socket = InterfaceSocket(item)
-    
+
     assert len(socket) == 0
 
 
@@ -158,11 +176,11 @@ def test_interface_socket_default_values():
     float_socket = InterfaceSocket(float_item)
     # Just verify the socket was created successfully
     assert float_socket.item == float_item
-    
+
     vector_item = MockVectorSocketItem()
     vector_socket = InterfaceSocket(vector_item)
     assert vector_socket.item == vector_item
-    
+
     color_item = MockColorSocketItem()
     color_socket = InterfaceSocket(color_item)
     assert color_socket.item == color_item
@@ -226,8 +244,8 @@ def test_interface_socket_min_max_values():
     item = MockSocketItem(min_value=0.5, max_value=9.5)
     socket = InterfaceSocket(item, round_length=1)
     # Test that socket was created with min/max values
-    assert hasattr(socket.item, 'min_value')
-    assert hasattr(socket.item, 'max_value')
+    assert hasattr(socket.item, "min_value")
+    assert hasattr(socket.item, "max_value")
 
 
 def test_interface_socket_min_max_none():
@@ -245,10 +263,10 @@ def test_interface_socket_socket_property():
 
 def test_interface_socket_max_length():
     item = MockSocketItem(
-        name="LongSocketName", 
+        name="LongSocketName",
         description="Very long description here",
         min_value=0.0,
-        max_value=100.0
+        max_value=100.0,
     )
     socket = InterfaceSocket(item)
     max_len = socket.max_length()
@@ -258,10 +276,10 @@ def test_interface_socket_max_length():
 def test_interface_group_basic():
     items = [
         InterfaceSocket(MockSocketItem(name="Socket1")),
-        InterfaceSocket(MockSocketItem(name="Socket2"))
+        InterfaceSocket(MockSocketItem(name="Socket2")),
     ]
     group = InterfaceGroup(items)
-    
+
     assert len(group) == 2
     assert group.columns == ["socket", "default", "description"]
     assert not group._is_output
@@ -270,7 +288,7 @@ def test_interface_group_basic():
 def test_interface_group_output():
     items = [InterfaceSocket(MockSocketItem(name="Socket1"))]
     group = InterfaceGroup(items, is_output=True)
-    
+
     assert group.columns == ["description", "socket"]
     assert group._is_output
 
@@ -284,7 +302,7 @@ def test_interface_group_empty():
 def test_interface_group_column_width():
     items = [InterfaceSocket(MockSocketItem(name="VeryLongSocketName"))]
     group = InterfaceGroup(items)
-    
+
     # Should be at least as wide as the socket name plus formatting
     width = group.column_width("socket")
     assert width >= len("VeryLongSocketName") + 2
@@ -293,7 +311,7 @@ def test_interface_group_column_width():
 def test_interface_group_padded_attr():
     items = [InterfaceSocket(MockSocketItem(name="Test"))]
     group = InterfaceGroup(items)
-    
+
     padded = group.get_padded_attr(items[0], "socket")
     assert "`Test::Float`" in padded
 
@@ -301,7 +319,7 @@ def test_interface_group_padded_attr():
 def test_interface_group_item_to_line():
     items = [InterfaceSocket(MockSocketItem(name="Test", description="Desc"))]
     group = InterfaceGroup(items)
-    
+
     line = group.item_to_line(items[0])
     assert line.startswith("|")
     assert line.endswith("|")
@@ -311,7 +329,7 @@ def test_interface_group_item_to_line():
 def test_interface_group_top_line():
     items = [InterfaceSocket(MockSocketItem())]
     group = InterfaceGroup(items)
-    
+
     top = group.top_line()
     assert "Socket" in top
     assert "Default" in top
@@ -321,7 +339,7 @@ def test_interface_group_top_line():
 def test_interface_group_sep():
     items = [InterfaceSocket(MockSocketItem())]
     group = InterfaceGroup(items)
-    
+
     sep = group.sep()
     assert "|" in sep
     assert "-" in sep
@@ -330,10 +348,10 @@ def test_interface_group_sep():
 def test_interface_group_body():
     items = [
         InterfaceSocket(MockSocketItem(name="Socket1")),
-        InterfaceSocket(MockSocketItem(name="Socket2"))
+        InterfaceSocket(MockSocketItem(name="Socket2")),
     ]
     group = InterfaceGroup(items)
-    
+
     body = group.body()
     lines = body.split("\n")
     assert len(lines) == 2
@@ -342,7 +360,7 @@ def test_interface_group_body():
 def test_interface_group_tail():
     items = [InterfaceSocket(MockSocketItem())]
     group = InterfaceGroup(items)
-    
+
     tail = group.tail()
     assert "tbl-colwidths" in tail
     assert "[10, 15, 80]" in tail
@@ -351,7 +369,7 @@ def test_interface_group_tail():
 def test_interface_group_tail_output():
     items = [InterfaceSocket(MockSocketItem())]
     group = InterfaceGroup(items, is_output=True)
-    
+
     tail = group.tail()
     assert "[90, 10]" in tail
 
@@ -359,7 +377,7 @@ def test_interface_group_tail_output():
 def test_interface_group_as_markdown():
     items = [InterfaceSocket(MockSocketItem(name="TestSocket"))]
     group = InterfaceGroup(items)
-    
+
     markdown = group.as_markdown("Test Title", level=2)
     assert "## Test Title" in markdown
     assert "`TestSocket::Float`" in markdown
@@ -375,7 +393,7 @@ def test_interface_group_as_markdown_empty():
 def test_interface_group_repr():
     items = [InterfaceSocket(MockSocketItem())]
     group = InterfaceGroup(items)
-    
+
     repr_str = repr(group)
     assert "Socket" in repr_str
     assert "`TestSocket::Float`" in repr_str

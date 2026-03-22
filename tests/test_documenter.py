@@ -2,7 +2,6 @@ import bpy
 import nodepad
 from nodepad import Documenter
 from pathlib import Path
-import pytest
 from json import load
 
 import nodepad.format

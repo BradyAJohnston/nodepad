@@ -1,9 +1,10 @@
 [project]
 name = "nodepad"
-version = "0.2.0"
+version = "0.3.0"
 description = "Generate node group documentation from Blender files"
 readme = "README.md"
-dependencies = ["numpy<2.0,>1.26", "click>=8.0"]
+dependencies = ["numpy>=1.26", "click>=8.0"]
+requires-python = "~=3.13.0"
 maintainers = [
     {name = "Brady Johnston",    email = "brady.johnston@me.com"}
     ]
@@ -14,7 +15,7 @@ Repository = "https://github.com/bradyajohnston/nodepad"
 Documentation = "https://bradyajohnston.github.io/nodepad"
 
 [project.optional-dependencies]
-bpy =  ["bpy>=4.2"]
+bpy =  ["bpy>=5.1.0"]
 docs = ["quartodoc", "tomlkit", "jupyter"]
 test = ["pytest", "pytest-cov", "syrupy", "scipy"]
 dev = ["pytest", "pytest-cov", "syrupy", "scipy", "fake-bpy-module"]

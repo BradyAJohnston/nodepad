@@ -15,7 +15,7 @@ class NODEPAD_UL_NodeTrees(UIList):
                 n_items -= 1
             if doc.description != "":
                 n_docced += 1
-        layout.label(text=f"{n_docced} / {n_items} ({(n_docced/n_items):.0%})")
+        layout.label(text=f"{n_docced} / {n_items} ({(n_docced / n_items):.0%})")
 
     def filter_items(self, context, data, property):
         items = getattr(data, property)
